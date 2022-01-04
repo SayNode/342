@@ -13,14 +13,13 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: Colors.red,
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: padding,
           children: [
             Container(
-              height: 150,
+              height: 250,
               child: DrawerHeader(
+                decoration: BoxDecoration(color: Colors.grey[50]),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -29,23 +28,25 @@ class MyDrawer extends StatelessWidget {
                       height: 50,
                       width: 50,
                     ),
-                    SizedBox(width: 50),
+                    const SizedBox(width: 50),
                     const Flexible(
                       child: Text(
                         'presented by SayNode',
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 24),
-            Divider(color: Colors.white),
-            const SizedBox(height: 24),
+            const Divider(
+              height: 40,
+              thickness: 2,
+              indent: 5,
+              endIndent: 0,
+              color: Colors.pink,
+            ),
             buildMenuItem(
               text: "Home",
               icon: Icons.home,
@@ -73,7 +74,7 @@ Widget buildMenuItem({
   required IconData icon,
   VoidCallback? onClicked,
 }) {
-  final color = Colors.white;
+  final color = Colors.pink;
 
   return ListTile(
     leading: Icon(

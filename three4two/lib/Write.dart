@@ -31,7 +31,6 @@ class _Write extends State<Write> {
           children: <Widget>[
             Container(
               padding: const EdgeInsets.all(30),
-              color: Colors.white,
               child: TextFormField(
                 onChanged: (value) {
                   setState(() {
@@ -49,14 +48,13 @@ class _Write extends State<Write> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
                     borderSide: const BorderSide(
-                      color: Colors.black,
                       width: 2.0,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
                     borderSide: BorderSide(
-                      color: Colors.red.shade900,
+                      color: Colors.pink,
                     ),
                   ),
                 ),
@@ -72,9 +70,6 @@ class _Write extends State<Write> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.red[900])),
                         onPressed: () async {
                           var tx = await sendToScript(_controller.text);
                           setState(() {
