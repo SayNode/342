@@ -1,6 +1,10 @@
 import 'package:three4two/Help.dart';
 import 'package:three4two/Home.dart';
+import 'package:three4two/Write.dart';
+import 'package:three4two/Search.dart';
+import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
+import 'package:three4two/about.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,12 +20,11 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => Screen0(),
-        "/first": (context) => Screen1(),
-        /* "/second": (context) => screen2(),
-        "/third": (context) => screen3(),
-        "/fourth": (context) => screen4(),
-        "/fifth": (context) => screen5(),
-*/
+        "/home": (context) => Home(),
+        "/write": (context) => Write(),
+        "/search": (context) => Search(),
+        "/about": (context) => About(),
+        "/tree": (context) => Tree(),
       },
     );
   }

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Drawer.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/Search.dart';
-import 'package:three4two/Tree.dart';
+import 'package:three4two/Tree0.dart';
+import 'package:three4two/Tree1.dart';
+import 'package:three4two/Tree2.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
-class Screen1 extends StatelessWidget {
-  const Screen1({Key? key}) : super(key: key);
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,24 +22,8 @@ class Screen1 extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Material(
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Screen4();
-                      },
-                    ),
-                  );
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.network(
-                      'http://www.newdesignfile.com/postpic/2013/08/cartoon-heart-tree_148402.jpg'),
-                ),
-              ),
+            Container(
+              child: imageCarousel(),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -71,7 +56,7 @@ class Screen1 extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return Screen3();
+                          return Search();
                         },
                       ),
                     );
@@ -94,4 +79,65 @@ class Screen1 extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget imageCarousel() {
+  return Container(
+      height: 400.0,
+      child: CarouselSlider(
+        options: CarouselOptions(
+          height: 300,
+          enlargeCenterPage: true,
+          enableInfiniteScroll: true,
+        ),
+        items: [
+          "assets/images/tree_green.png",
+          "assets/images/tree_yellow.png",
+          "assets/images/tree_orange.png",
+        ].map((i) {
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Colors.red[50],
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: GestureDetector(
+                      child: Image.asset(i, fit: BoxFit.fitHeight),
+                      onTap: () {
+                        print(i);
+                        switch (i) {
+                          case "assets/images/tree_green.png":
+                            print("Green");
+                            Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Tree(),
+                              ),
+                            );
+                            break;
+                          case "assets/images/tree_orange.png":
+                            print("Orange");
+                            Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Tree1(),
+                              ),
+                            );
+                            break;
+                          case "assets/images/tree_yellow.png":
+                            print("yellow");
+                            Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Tree2(),
+                              ),
+                            );
+                        }
+                      }));
+            },
+          );
+        }).toList(),
+      ));
 }

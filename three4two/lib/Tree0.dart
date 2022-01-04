@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Screen4 extends StatelessWidget {
+class Tree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hier kommt die Baum Seite'),
+        title: Text("Hier kommt Baum 0"),
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Screen2'),
+          child: Text('zurück'),
           onPressed: () {
             Navigator.pop(context);
           },

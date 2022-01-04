@@ -13,7 +13,7 @@ class Screen0 extends StatelessWidget {
           child: Text('Weiter'),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Screen1();
+              return Home();
             }));
           },
         ),
