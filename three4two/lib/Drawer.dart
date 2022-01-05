@@ -25,8 +25,8 @@ class MyDrawer extends StatelessWidget {
                   children: [
                     Image.asset(
                       "assets/images/Logo.png",
-                      height: 50,
-                      width: 50,
+                      height: 75,
+                      width: 75,
                     ),
                     const SizedBox(width: 50),
                     const Flexible(

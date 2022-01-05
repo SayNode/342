@@ -3,6 +3,7 @@ import 'package:three4two/Drawer.dart';
 import 'package:three4two/Carousell.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/Search.dart';
+import 'package:share/share.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -64,7 +65,7 @@ class Home extends StatelessWidget {
                     size: 24.0,
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Share.share("www.saynode.ch");
                   },
                 ),
               ],

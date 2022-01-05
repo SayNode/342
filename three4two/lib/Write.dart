@@ -13,8 +13,12 @@ class Write extends StatefulWidget {
 }
 
 class _Write extends State<Write> {
+  String Name1 = '';
+  String Name2 = '';
   String _enteredText = '';
   TextEditingController _controller = TextEditingController();
+  TextEditingController name1Controller = TextEditingController();
+  TextEditingController name2Controller = TextEditingController();
   bool myNewButton = false;
   String myText = "Senden";
 
@@ -24,32 +28,97 @@ class _Write extends State<Write> {
       appBar: AppBar(),
       drawer: MyDrawer(),
       body: Container(
-        color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(
+              children: [
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20, right: 10),
+                    child: TextField(
+                      controller: name1Controller,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(50),
+                      ],
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.pink,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.pink,
+                            ),
+                          ),
+                          hintText: "your name"),
+                    ),
+                  ),
+                ),
+                Text(
+                  "+",
+                  style: TextStyle(color: Colors.white, fontSize: 30),
+                ),
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 10, right: 20),
+                    child: TextField(
+                      controller: name2Controller,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(50),
+                      ],
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.pink,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.pink,
+                            ),
+                          ),
+                          hintText: "your partner"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Container(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(20),
               child: TextFormField(
                 onChanged: (value) {
-                  setState(() {
-                    _enteredText = value;
-                  });
+                  setState(
+                    () {
+                      _enteredText = value;
+                    },
+                  );
                 },
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(200),
                 ],
                 decoration: InputDecoration(
-                  hintText: 'Hier kannst du deine Nachricht eingeben',
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "your love message",
                   helperText: 'Maximal 200 Zeichen',
+                  helperStyle: TextStyle(color: Colors.white),
                   counterText:
                       '${(200 - _enteredText.length).toString()} Zeichen übrig',
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
-                    borderSide: const BorderSide(
-                      width: 2.0,
-                    ),
+                    borderSide:
+                        const BorderSide(width: 2.0, color: Colors.white),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),
@@ -62,7 +131,6 @@ class _Write extends State<Write> {
               ),
             ),
             Container(
-              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.only(top: 25.0, bottom: 50.0),
                 child: Row(
@@ -71,7 +139,8 @@ class _Write extends State<Write> {
                   children: [
                     ElevatedButton(
                         onPressed: () async {
-                          var tx = await sendToScript(_controller.text);
+                          var tx = await sendToScript(_controller.text,
+                              name1Controller.text, name2Controller.text);
                           setState(() {
                             myNewButton = !myNewButton;
                             Text(tx);
@@ -97,9 +166,11 @@ class _Write extends State<Write> {
   }
 }
 
-Future<String> sendToScript(nachricht) async {
+Future<String> sendToScript(nachricht, name1, name2) async {
   print(nachricht);
-  Map form = {"nachricht": nachricht};
+  print(name1);
+  print(name2);
+  Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
   print(form);
   var send = await http.post(Uri.parse('https://www.google.ch'),
       headers: {'Content-Type': 'application/json'}, body: json.encode(form));
