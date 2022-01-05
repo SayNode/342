@@ -172,8 +172,8 @@ Future<String> sendToScript(nachricht, name1, name2) async {
   print(name2);
   Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
   print(form);
-  var send = await http.post(Uri.parse('https://www.google.ch'),
+  var send = await http.post(Uri.parse('http://10.0.2.2:5000'),
       headers: {'Content-Type': 'application/json'}, body: json.encode(form));
-
-  return "Txnummer"; //jsonDecode(send.body);
+  print(jsonDecode(send.body));
+  return "Txnummer";
 }
