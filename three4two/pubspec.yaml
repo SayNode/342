@@ -34,6 +34,8 @@ dependencies:
   carousel_slider: ^4.0.0
   google_fonts: ^2.2.0
   share: ^2.0.4
+  localstore: ^1.2.1
+  shared_preferences: ^2.0.11 
 
 
 
@@ -68,6 +70,15 @@ flutter:
      - assets/images/Logo.png
      - assets/images/Baumstamm.png
      - assets/images/Baumstamm_verkehrt.png
+     - assets/images/himmel1.png
+     - assets/images/himmel2.png
+     - assets/images/himmel3.png
+     - assets/images/himmel4.png
+     - assets/images/himmel5.png
+     - assets/images/himmel6.png
+     - assets/images/himmel7.png
+
+     
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

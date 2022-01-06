@@ -7,8 +7,12 @@ import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SharedPreferences.setMockInitialValues({});
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
