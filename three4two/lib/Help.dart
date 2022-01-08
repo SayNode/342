@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
+import 'package:three4two/widget/fetchOffers.dart';
 
 class Screen0 extends StatelessWidget {
   @override

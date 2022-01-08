@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:three4two/Drawer.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import "package:three4two/widget/fetchOffers.dart";
 
 class Write extends StatefulWidget {
   const Write({Key? key}) : super(key: key);
@@ -22,6 +22,7 @@ class _Write extends State<Write> {
   bool myNewButton = false;
   String myText = "Senden";
   String txID = "";
+  bool sucessfulPayment = false;
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +144,15 @@ class _Write extends State<Write> {
                       children: [
                         ElevatedButton(
                             onPressed: () async {
-                              var tx = await sendToScript(_controller.text,
+                              await fetchOffers(context);
+                              print("test");
+                              await sendToScript(_controller.text,
                                   name1Controller.text, name2Controller.text);
+                              print("test2");
+
                               setState(() {
                                 myNewButton = !myNewButton;
-                                txID = "Your Transaction ID: " + tx;
+                                txID = "Your Transaction ID: ";
                               });
                             },
                             child: Row(children: [
@@ -182,12 +187,16 @@ class _Write extends State<Write> {
 }
 
 Future<String> sendToScript(nachricht, name1, name2) async {
-  Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
+  try {
+    Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
 
-  var send = await http.post(Uri.parse('http://10.0.2.2:5000'),
-      headers: {'Content-Type': 'application/json'}, body: json.encode(form));
+    var send = await http.post(Uri.parse('http://10.0.2.2:5000'),
+        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
-  final txId = (json.decode(send.body)).substring(9, 75);
+    final txId = (json.decode(send.body)).substring(9, 75);
 
-  return txId;
+    return txId;
+  } on Exception catch (e) {
+    return "schweisse";
+  }
 }
