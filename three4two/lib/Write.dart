@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:three4two/Drawer.dart';
+import 'package:three4two/globals.dart' as globals;
 import "package:three4two/widget/fetchOffers.dart";
 
 class Write extends StatefulWidget {
@@ -13,9 +14,6 @@ class Write extends StatefulWidget {
 }
 
 class _Write extends State<Write> {
-  String Name1 = '';
-  String Name2 = '';
-  String _enteredText = '';
   TextEditingController _controller = TextEditingController();
   TextEditingController name1Controller = TextEditingController();
   TextEditingController name2Controller = TextEditingController();
@@ -44,6 +42,13 @@ class _Write extends State<Write> {
                         padding: const EdgeInsets.only(left: 20, right: 10),
                         child: TextField(
                           controller: name1Controller,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                globals.name1 = value;
+                              },
+                            );
+                          },
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(50),
                           ],
@@ -75,6 +80,13 @@ class _Write extends State<Write> {
                         padding: const EdgeInsets.only(left: 10, right: 20),
                         child: TextField(
                           controller: name2Controller,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                globals.name2 = value;
+                              },
+                            );
+                          },
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(50),
                           ],
@@ -105,7 +117,7 @@ class _Write extends State<Write> {
                     onChanged: (value) {
                       setState(
                         () {
-                          _enteredText = value;
+                          globals.message = value;
                         },
                       );
                     },
@@ -119,7 +131,7 @@ class _Write extends State<Write> {
                       helperText: 'Maximal 200 Zeichen',
                       helperStyle: TextStyle(color: Colors.white),
                       counterText:
-                          '${(200 - _enteredText.length).toString()} Zeichen übrig',
+                          '${(200 - globals.message.length).toString()} Zeichen übrig',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:
@@ -144,20 +156,12 @@ class _Write extends State<Write> {
                       children: [
                         ElevatedButton(
                             onPressed: () async {
+                              FocusScope.of(context).requestFocus(FocusNode());
                               await fetchOffers(context);
-                              print("test");
-                              await sendToScript(_controller.text,
-                                  name1Controller.text, name2Controller.text);
-                              print("test2");
-
-                              setState(() {
-                                myNewButton = !myNewButton;
-                                txID = "Your Transaction ID: ";
-                              });
                             },
                             child: Row(children: [
                               Text(
-                                myNewButton ? "Versendet" : myText,
+                                myText,
                               ),
                               const Padding(
                                 padding: EdgeInsets.only(left: 8.0),
@@ -183,20 +187,5 @@ class _Write extends State<Write> {
         ),
       ),
     );
-  }
-}
-
-Future<String> sendToScript(nachricht, name1, name2) async {
-  try {
-    Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
-
-    var send = await http.post(Uri.parse('http://10.0.2.2:5000'),
-        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
-
-    final txId = (json.decode(send.body)).substring(9, 75);
-
-    return txId;
-  } on Exception catch (e) {
-    return "schweisse";
   }
 }

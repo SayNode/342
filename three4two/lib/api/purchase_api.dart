@@ -21,6 +21,7 @@ class PurchaseApi {
   static Future<bool> purchasePackage(Package package) async {
     try {
       await Purchases.purchasePackage(package);
+
       return true;
     } on Exception catch (e) {
       return false;

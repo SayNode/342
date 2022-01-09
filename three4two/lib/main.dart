@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:three4two/Help.dart';
 import 'package:three4two/Home.dart';
+import 'package:three4two/Thanks.dart';
 import 'package:three4two/Tree1.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/Search.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         "/search": (context) => Search(),
         "/about": (context) => About(),
         "/tree": (context) => Tree1(),
+        "/thanks": (context) => Thanks(),
       },
     );
   }

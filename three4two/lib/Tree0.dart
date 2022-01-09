@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:three4two/TreeOnClick.dart';
 
-class Tree extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _Tree();
-}
-
-class _Tree extends State<Tree> {
+class Tree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

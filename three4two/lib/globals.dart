@@ -1,1 +1,4 @@
-import 'package:localstore/localstore.dart';
+String message = "";
+String name1 = "";
+String name2 = "";
+String recentTx = "";
