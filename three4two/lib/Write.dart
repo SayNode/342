@@ -18,14 +18,16 @@ class _Write extends State<Write> {
   TextEditingController name1Controller = TextEditingController();
   TextEditingController name2Controller = TextEditingController();
   bool myNewButton = false;
-  String myText = "Senden";
+  String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       drawer: MyDrawer(),
       body: Center(
         child: Container(
@@ -35,6 +37,35 @@ class _Write extends State<Write> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                        color: Colors.pink.shade800,
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                    child: Column(
+                      children: [
+                        Text(
+                          " Write your message",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "Be aware, that your message is stored permanently and can't removed from the blockchain.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 Row(
                   children: [
                     Flexible(
@@ -128,10 +159,9 @@ class _Write extends State<Write> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: "your love message",
-                      helperText: 'Maximal 200 Zeichen',
                       helperStyle: TextStyle(color: Colors.white),
                       counterText:
-                          '${(200 - globals.message.length).toString()} Zeichen übrig',
+                          '${(200 - globals.message.length).toString()} characters left',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:

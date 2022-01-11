@@ -27,14 +27,21 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         primaryColor: Colors.pink,
         scaffoldBackgroundColor: Colors.pink,
-        fontFamily: 'Flama',
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.pink,
-              displayColor: Colors.pink,
-            ),
+        textTheme: GoogleFonts.openSansTextTheme(
+          Theme.of(context).textTheme.apply(
+                bodyColor: Colors.pink,
+                displayColor: Colors.pink,
+              ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              onPrimary: Colors.pink, primary: Colors.red[50], elevation: 1),
+            onPrimary: Colors.pink,
+            primary: Colors.red[50],
+            elevation: 2,
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(15.0),
+            ),
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
