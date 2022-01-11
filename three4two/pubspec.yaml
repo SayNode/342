@@ -34,11 +34,10 @@ dependencies:
   carousel_slider: ^4.0.0
   google_fonts: ^2.2.0
   share: ^2.0.4
-  localstore: ^1.2.1
-  shared_preferences: ^2.0.11 
   purchases_flutter: ^3.0.0
   flutter_spinkit: ^5.1.0
   fluttertoast: ^8.0.8
+  url_launcher: ^6.0.18
 
 dev_dependencies:
   flutter_test:
@@ -70,19 +69,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/tree_green.png
-     - assets/images/tree_yellow.png
-     - assets/images/tree_orange.png
-     - assets/images/Logo.png
-     - assets/images/Baumstamm.png
-     - assets/images/Baumstamm_verkehrt.png
-     - assets/images/himmel1.png
-     - assets/images/himmel2.png
-     - assets/images/himmel3.png
-     - assets/images/himmel4.png
-     - assets/images/himmel5.png
-     - assets/images/himmel6.png
-     - assets/images/himmel7.png
+     
+     - assets/images/
+     - assets/UI/
 
      
 

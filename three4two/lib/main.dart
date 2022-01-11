@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:three4two/Help.dart';
+import 'package:three4two/Start.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
 import 'package:three4two/Tree1.dart';
@@ -9,7 +9,7 @@ import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:three4two/api/purchase_api.dart';
 
 Future main() async {

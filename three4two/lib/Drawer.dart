@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:three4two/Help.dart';
+import 'package:three4two/Start.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/Search.dart';
@@ -90,7 +90,6 @@ Widget buildMenuItem({
 }
 
 void selectItem(BuildContext context, int index) {
-  Navigator.of(context).pop();
   Navigator.of(context).pop();
 
   switch (index) {
