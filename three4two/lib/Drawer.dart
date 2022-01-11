@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:three4two/Start.dart';
+import 'package:three4two/FAQ.dart';
 import 'package:three4two/Home.dart';
-import 'package:three4two/Write.dart';
-import 'package:three4two/Search.dart';
-import 'package:three4two/Tree0.dart';
 import 'package:three4two/about.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -58,7 +55,7 @@ class MyDrawer extends StatelessWidget {
               onClicked: () => selectItem(context, 1),
             ),
             buildMenuItem(
-              text: "Help",
+              text: "FAQ",
               icon: Icons.help,
               onClicked: () => selectItem(context, 2),
             ),
@@ -110,7 +107,7 @@ void selectItem(BuildContext context, int index) {
     case 2:
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => Screen0(),
+          builder: (context) => FAQ(),
         ),
       );
       break;
