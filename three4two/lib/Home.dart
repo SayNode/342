@@ -35,13 +35,12 @@ class Home extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Write();
-                          },
-                        ),
-                      );
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                                Write(),
+                            transitionDuration: Duration.zero,
+                          ));
                     }),
                 ElevatedButton(
                   child: Icon(
@@ -51,10 +50,10 @@ class Home extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return Search();
-                        },
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) =>
+                            Search(),
+                        transitionDuration: Duration.zero,
                       ),
                     );
                   },

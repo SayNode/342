@@ -29,10 +29,8 @@ Widget imageCarousel() {
                   child: GestureDetector(
                       child: Image.asset(i, fit: BoxFit.fitHeight),
                       onTap: () {
-                        print(i);
                         switch (i) {
                           case "assets/images/tree_green.png":
-                            print("Green");
                             Navigator.push<Widget>(
                               context,
                               MaterialPageRoute(
@@ -41,7 +39,6 @@ Widget imageCarousel() {
                             );
                             break;
                           case "assets/images/tree_orange.png":
-                            print("Orange");
                             Navigator.push<Widget>(
                               context,
                               MaterialPageRoute(
@@ -50,7 +47,6 @@ Widget imageCarousel() {
                             );
                             break;
                           case "assets/images/tree_yellow.png":
-                            print("yellow");
                             Navigator.push<Widget>(
                               context,
                               MaterialPageRoute(

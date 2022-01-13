@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:three4two/TreeOnClick.dart';
+import "package:hex/hex.dart";
 
 class Test extends StatelessWidget {
   @override
@@ -23,6 +24,9 @@ class Test extends StatelessWidget {
   }
 }
 
+List<String> bothNames = [];
+List<String> fullMessage = [];
+
 Future<String> getNames() async {
   try {
     Map form = {
@@ -39,9 +43,29 @@ Future<String> getNames() async {
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
-    final nodeResponse = (json.decode(sendToNode.body));
-    print(nodeResponse);
-    return nodeResponse;
+    List<dynamic> nodeResponse = json.decode(sendToNode.body);
+    var numberOfEvents = nodeResponse.length;
+    print(numberOfEvents);
+    for (int i = 1; i < numberOfEvents; i++) {
+      try {
+        String data = nodeResponse[i]["data"];
+        var length = data.length;
+
+        String name1 = ascii.decode(
+            HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
+        String name2 = ascii.decode(
+            HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
+        String message =
+            ascii.decode(HEX.decode(data.substring(length - 64, length)));
+        String names = name1 + " + " + name2;
+
+        bothNames.add(names);
+        fullMessage.add(message);
+      } on Exception catch (e) {
+        print(e);
+      }
+    }
+    return "Hello";
   } on Exception catch (e) {
     print(e);
     return "shit";

@@ -27,6 +27,7 @@ class _Write extends State<Write> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.pink, size: 30),
       ),
       drawer: MyDrawer(),
       body: Center(

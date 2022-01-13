@@ -21,7 +21,7 @@ class FAQ extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: 100,
+                      top: (MediaQuery.of(context).size.width) / 4,
                       child: Container(
                         padding: EdgeInsets.only(
                             top: 5, bottom: 5, left: 15, right: 15),

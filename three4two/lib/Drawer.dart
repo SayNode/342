@@ -8,6 +8,7 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("assets/images/Logo.png"), context);
     return Drawer(
       child: Material(
         child: ListView(
@@ -91,25 +92,28 @@ void selectItem(BuildContext context, int index) {
 
   switch (index) {
     case 0:
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => Home(),
-        ),
-      );
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) => Home(),
+            transitionDuration: Duration.zero,
+          ));
       break;
     case 1:
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => About(),
-        ),
-      );
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) => About(),
+            transitionDuration: Duration.zero,
+          ));
       break;
     case 2:
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => FAQ(),
-        ),
-      );
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) => FAQ(),
+            transitionDuration: Duration.zero,
+          ));
       break;
   }
 }
