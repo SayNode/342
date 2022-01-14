@@ -14,9 +14,7 @@ Widget imageCarousel() {
           enableInfiniteScroll: true,
         ),
         items: [
-          "assets/images/tree_green.png",
-          "assets/images/tree_yellow.png",
-          "assets/images/tree_orange.png",
+          "http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/tree",
         ].map((i) {
           return Builder(
             builder: (BuildContext context) {
@@ -27,33 +25,16 @@ Widget imageCarousel() {
                       color: Colors.red[50],
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
                   child: GestureDetector(
-                      child: Image.asset(i, fit: BoxFit.fitHeight),
+                      child: Image.network(
+                          "http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/tree",
+                          fit: BoxFit.fitHeight),
                       onTap: () {
-                        switch (i) {
-                          case "assets/images/tree_green.png":
-                            Navigator.push<Widget>(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Tree(),
-                              ),
-                            );
-                            break;
-                          case "assets/images/tree_orange.png":
-                            Navigator.push<Widget>(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Tree1(),
-                              ),
-                            );
-                            break;
-                          case "assets/images/tree_yellow.png":
-                            Navigator.push<Widget>(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Tree2(),
-                              ),
-                            );
-                        }
+                        Navigator.push<Widget>(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Tree(),
+                          ),
+                        );
                       }));
             },
           );

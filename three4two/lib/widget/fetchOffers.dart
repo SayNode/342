@@ -53,7 +53,7 @@ Future<String> sendToScript(nachricht, name1, name2) async {
 
     var send = await http.post(
         Uri.parse(
-            'http://flasktransactiontree-env-1.eba-5iutziir.eu-central-1.elasticbeanstalk.com/'),
+            'http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
