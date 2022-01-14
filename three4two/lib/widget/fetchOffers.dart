@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
 import 'package:three4two/widget/paywall_widget.dart';
-import 'package:three4two/api/purchase_api.dart';
 import 'package:three4two/globals.dart' as globals;
+import 'package:three4two/Utils/store.dart';
+import 'package:three4two/api/purchase_api.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -35,6 +36,8 @@ Future fetchOffers(BuildContext context) async {
               await PurchaseApi.purchasePackage(package);
               globals.recentTx = await sendToScript(
                   globals.message, globals.name1, globals.name2);
+              writeJson(globals.txId.toString(), globals.recentTx);
+              globals.txId++;
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(builder: (context) => Thanks()),
                   (Route<dynamic> route) => false);
@@ -57,7 +60,7 @@ Future<String> sendToScript(nachricht, name1, name2) async {
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
-    final txId = (json.decode(send.body)).substring(9, 75);
+    final txId = (json.decode(send.body)).substring(8, 74);
 
     return txId;
   } on Exception catch (e) {

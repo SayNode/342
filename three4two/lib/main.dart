@@ -9,13 +9,13 @@ import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'package:three4two/api/purchase_api.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PurchaseApi.init();
-
   runApp(MyApp());
 }
 

@@ -47,7 +47,11 @@ class Tree extends StatelessWidget {
             ));
           } else {
             if (snapshot.hasError)
-              return Center(child: Text('Error: ${snapshot.error}'));
+              return Center(
+                  child: Text(
+                'Error: ${snapshot.error}',
+                style: TextStyle(color: Colors.white),
+              ));
             else
               return Center(
                 child: ListView.builder(
@@ -144,17 +148,18 @@ Future getNames() async {
       try {
         String data = nodeResponse[i]["data"];
         var length = data.length;
+        if (length > 330) {
+          String name1 = ascii.decode(
+              HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
+          String name2 = ascii.decode(
+              HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
+          String message =
+              ascii.decode(HEX.decode(data.substring(length - 64, length)));
+          String names = name1 + " + " + name2;
 
-        String name1 = ascii.decode(
-            HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
-        String name2 = ascii.decode(
-            HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
-        String message =
-            ascii.decode(HEX.decode(data.substring(length - 64, length)));
-        String names = name1 + " + " + name2;
-
-        bothNames.add(names);
-        fullMessage.add(message);
+          bothNames.add(names);
+          fullMessage.add(message);
+        }
       } on Exception catch (e) {}
     }
     return;

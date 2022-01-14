@@ -11,7 +11,7 @@ Widget imageCarousel() {
         options: CarouselOptions(
           height: 300,
           enlargeCenterPage: true,
-          enableInfiniteScroll: true,
+          enableInfiniteScroll: false,
         ),
         items: [
           "http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/tree",
