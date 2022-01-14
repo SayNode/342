@@ -4,7 +4,7 @@ import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
 import 'package:three4two/Tree1.dart';
 import 'package:three4two/Write.dart';
-import 'package:three4two/Search.dart';
+import 'package:three4two/OwnTransactions.dart';
 import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => Screen0(),
         "/home": (context) => Home(),
         "/write": (context) => Write(),
-        "/search": (context) => Search(),
+        "/search": (context) => OwnTx(),
         "/about": (context) => About(),
         "/tree": (context) => Tree1(),
         "/thanks": (context) => Thanks(),

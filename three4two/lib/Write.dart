@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:three4two/Drawer.dart';
 import 'package:three4two/globals.dart' as globals;
 import "package:three4two/widget/fetchOffers.dart";
