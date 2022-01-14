@@ -51,8 +51,11 @@ Future<String> sendToScript(nachricht, name1, name2) async {
   try {
     Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
 
-    var send = await http.post(Uri.parse('http://10.0.2.2:5000'),
-        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
+    var send = await http.post(
+        Uri.parse(
+            'http://flasktransactiontree-env-1.eba-5iutziir.eu-central-1.elasticbeanstalk.com/'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(form));
 
     final txId = (json.decode(send.body)).substring(9, 75);
 
