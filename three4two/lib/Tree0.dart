@@ -24,6 +24,7 @@ class Tree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff6ca8ef),
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.pink, size: 30),
@@ -54,12 +55,9 @@ class Tree extends StatelessWidget {
                         alignment: Alignment.center,
                         clipBehavior: Clip.none,
                         children: <Widget>[
-                          Positioned.fill(
-                            child: Container(
-                                child: Image.asset(
-                              himmel[Random().nextInt(7)],
-                              fit: BoxFit.fitHeight,
-                            )),
+                          Image.asset(
+                            himmel[Random().nextInt(7)],
+                            fit: BoxFit.fitHeight,
                           ),
                           FractionallySizedBox(
                             alignment: Alignment.center,
