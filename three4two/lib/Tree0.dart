@@ -117,17 +117,19 @@ class Tree extends StatelessWidget {
 Future getNames() async {
   bothNames.clear();
   fullMessage.clear();
-
+  var bestBlock =
+      await http.get(Uri.parse('http://3.71.71.72:8669/blocks/best'));
+  var bestBlockList = json.decode(bestBlock.body);
+  int best = (bestBlockList['number']);
   try {
     Map form = {
-      "range": {"unit": "block", "from": 0, "to": 12178663},
+      "range": {"unit": "block", "from": 0, "to": best},
       "options": {"offset": 0, "limit": 100},
       "criteriaSet": [
         {"address": "0x6f7BeC0AFcfF5d87d1817d6a3291E96CbD156944"}
       ],
       "order": "asc"
     };
-
     var sendToNode = await http.post(
         Uri.parse('https://sync-testnet.vechain.org/logs/event'),
         headers: {'Content-Type': 'application/json'},

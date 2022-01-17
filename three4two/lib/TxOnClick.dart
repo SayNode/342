@@ -29,7 +29,7 @@ class TxOnClick extends StatelessWidget {
                       border: Border.all(color: Colors.white, width: 5),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(
-                    "Hier stehen die namen",
+                    "Your names",
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
@@ -39,7 +39,7 @@ class TxOnClick extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(30),
             child: Text(
-              "Hier steht der Text",
+              "Your message",
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
               textAlign: TextAlign.center,
             ),

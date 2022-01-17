@@ -68,6 +68,6 @@ Future<String> getNames() async {
     return "Hello";
   } on Exception catch (e) {
     print(e);
-    return "shit";
+    return "oops";
   }
 }

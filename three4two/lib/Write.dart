@@ -54,7 +54,7 @@ class _Write extends State<Write> {
                           ),
                         ),
                         Text(
-                          "Be aware, that your message is stored permanently and can't removed from the blockchain.",
+                          "Be aware, that your message is stored permanently and can't be removed from the blockchain.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
@@ -135,7 +135,7 @@ class _Write extends State<Write> {
                                   color: Colors.pink,
                                 ),
                               ),
-                              hintText: "your partner"),
+                              hintText: "your loved one"),
                         ),
                       ),
                     ),

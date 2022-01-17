@@ -40,7 +40,7 @@ class About extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(30),
               child: Text(
-                "THREE FOR TWO is developed by SayNode. We want to do cool stuff with blockchains",
+                "TREE FOR TWO is developed by SayNode. We want to do cool stuff with blockchains",
                 style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                 textAlign: TextAlign.center,
               ),

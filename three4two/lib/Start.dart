@@ -32,7 +32,7 @@ class Screen0 extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              "Here you can write a message directly to the VeChain Blockchain and store your words forever. To write a message, click on GET STARTED and on the next page click on the ",
+                              "Confess your love to your loved ones and store your words forever on the blockchain! Let the tree of love grow, for each message it will get another leaf. By storing your messages on the blockchain they will be stored forever. That's better than etching your name in a real tree or writing your name on a lock. To write a message, click on GET STARTED and on the next page click on the ",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.grey.shade600,

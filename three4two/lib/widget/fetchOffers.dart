@@ -64,6 +64,6 @@ Future<String> sendToScript(nachricht, name1, name2) async {
 
     return txId;
   } on Exception catch (e) {
-    return "shit";
+    return "Oops";
   }
 }

@@ -44,39 +44,52 @@ class FAQ extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Why does it cost something?",
+                        "Why do I have to pay something?",
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
                       ),
                       Text(
-                        "Certain interactions with a blockchain costs money. If you want to run a website, you pay the hosting company a rent. By storing data on a blockchain, like storing a message, you pay a small fee to the network. The fees are payed through our own crypto wallet to ensure a easy acces for you. To cover all our expences we charge a small amout of money.  ",
+                        "Certain interactions with a blockchain costs money. To store data forever on a blockchain, like storing a message, you have to pay a fee to the nodes running the network. We take care of these fees in order to make the process as easy as possible for you.",
                         style: TextStyle(
                             fontSize: 18, color: Colors.grey.shade600),
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(height: 20),
                       Text(
-                        "How can I delete my message?",
+                        "Why are the characters of my message limited?",
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
                       ),
                       Text(
-                        "Once your message is send to the blockchain, it can't be deleted. This is in the very nature of blockchains, which makes them so secure by the way, that you can't change data on it",
+                        "The mire data you want to submit to the blockchain the more gas fees you have to pay. In order to keep the price affordable for anyone we had to limit the character input of the messages.",
                         style: TextStyle(
                             fontSize: 18, color: Colors.grey.shade600),
                         textAlign: TextAlign.left,
                       ),
                       SizedBox(height: 20),
                       Text(
-                        "Why Vechain",
+                        "Can I delete my message?",
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
                       ),
                       Text(
-                        "Why not?",
+                        "Once your message is send to the blockchain, it can't be deleted. This is in the very nature of blockchains, which makes them so secure. Your declaration of love will be stored forever.",
+                        style: TextStyle(
+                            fontSize: 18, color: Colors.grey.shade600),
+                        textAlign: TextAlign.left,
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "Why did you choose VeChain as your blockchain?",
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                      Text(
+                        "Why not? VeChain is a very scalable L1 solution with low fees and easily accessible developer toolkits. Because of the fee delegation feature of VeChain we can build blockchain applications with minimal technical user interactions.",
                         style: TextStyle(
                             fontSize: 18, color: Colors.grey.shade600),
                         textAlign: TextAlign.left,
