@@ -22,6 +22,15 @@ Future main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("assets/images/Logo.png"), context);
+    precacheImage(AssetImage("assets/images/himmel1.png"), context);
+    precacheImage(AssetImage("assets/images/himmel2.png"), context);
+    precacheImage(AssetImage("assets/images/himmel3.png"), context);
+    precacheImage(AssetImage("assets/images/himmel4.png"), context);
+    precacheImage(AssetImage("assets/images/himmel5.png"), context);
+    precacheImage(AssetImage("assets/images/himmel6.png"), context);
+    precacheImage(AssetImage("assets/images/himmel7.png"), context);
+    precacheImage(AssetImage("assets/images/Baumstamm.png"), context);
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.pink,

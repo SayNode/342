@@ -23,14 +23,6 @@ List<String> fullMessage = [];
 class Tree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("assets/images/himmel1.png"), context);
-    precacheImage(AssetImage("assets/images/himmel2.png"), context);
-    precacheImage(AssetImage("assets/images/himmel3.png"), context);
-    precacheImage(AssetImage("assets/images/himmel4.png"), context);
-    precacheImage(AssetImage("assets/images/himmel5.png"), context);
-    precacheImage(AssetImage("assets/images/himmel6.png"), context);
-    precacheImage(AssetImage("assets/images/himmel7.png"), context);
-    precacheImage(AssetImage("assets/images/Baumstamm.png"), context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

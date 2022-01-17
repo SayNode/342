@@ -8,7 +8,6 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("assets/images/Logo.png"), context);
     return Drawer(
       child: Material(
         child: ListView(
