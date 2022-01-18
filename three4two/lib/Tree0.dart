@@ -6,6 +6,7 @@ import 'package:three4two/TreeOnClick.dart';
 import "package:hex/hex.dart";
 import 'package:three4two/Utils/globals.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 List<String> himmel = [
   "assets/images/himmel1.png",
@@ -55,9 +56,14 @@ class Tree extends StatelessWidget {
                         alignment: Alignment.center,
                         clipBehavior: Clip.none,
                         children: <Widget>[
-                          Image.asset(
-                            himmel[Random().nextInt(7)],
-                            fit: BoxFit.fitHeight,
+                          FadeInImage(
+                            placeholder: AssetImage("assets/images/himmel1.png"),
+                            image: AssetImage(
+                              himmel[Random().nextInt(7)],
+                              
+                            ),
+                            fadeInDuration: Duration(seconds: 1),
+                            
                           ),
                           FractionallySizedBox(
                             alignment: Alignment.center,
