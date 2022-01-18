@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:three4two/Drawer.dart';
-import 'package:three4two/Carousell.dart';
+import 'package:three4two/widget/Drawer.dart';
+import 'package:three4two/widget/Carousell.dart';
 import 'package:three4two/Search.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';

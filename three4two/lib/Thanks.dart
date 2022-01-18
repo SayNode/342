@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
-import 'package:three4two/globals.dart' as globals;
+import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:share/share.dart';
 
 class Thanks extends StatelessWidget {

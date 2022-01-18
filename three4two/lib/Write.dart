@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:three4two/Drawer.dart';
-import 'package:three4two/globals.dart' as globals;
+import 'package:three4two/widget/Drawer.dart';
+import 'package:three4two/Utils/globals.dart' as globals;
 import "package:three4two/widget/fetchOffers.dart";
 
 class Write extends StatefulWidget {
@@ -80,7 +80,7 @@ class _Write extends State<Write> {
                             );
                           },
                           inputFormatters: [
-                            LengthLimitingTextInputFormatter(50),
+                            LengthLimitingTextInputFormatter(10),
                           ],
                           decoration: InputDecoration(
                               filled: true,
@@ -118,7 +118,7 @@ class _Write extends State<Write> {
                             );
                           },
                           inputFormatters: [
-                            LengthLimitingTextInputFormatter(50),
+                            LengthLimitingTextInputFormatter(10),
                           ],
                           decoration: InputDecoration(
                               filled: true,

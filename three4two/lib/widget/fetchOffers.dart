@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
 import 'package:three4two/widget/paywall_widget.dart';
-import 'package:three4two/globals.dart' as globals;
+import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:three4two/Utils/store.dart';
 import 'package:three4two/api/purchase_api.dart';
 

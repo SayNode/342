@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:three4two/TreeOnClick.dart';
 import "package:hex/hex.dart";
-import 'package:three4two/globals.dart';
+import 'package:three4two/Utils/globals.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 List<String> himmel = [

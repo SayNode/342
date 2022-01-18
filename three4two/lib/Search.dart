@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import "package:hex/hex.dart";
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'globals.dart' as globals;
+import 'Utils/globals.dart' as globals;
 import 'dart:convert';
 import 'package:three4two/TreeOnClick.dart';
 

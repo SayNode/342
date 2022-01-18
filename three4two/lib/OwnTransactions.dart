@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Utils/store.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:three4two/TxOnClick.dart';
-import 'globals.dart' as globals;
+import 'Utils/globals.dart' as globals;
 import 'dart:convert';
 
 class OwnTx extends StatefulWidget {
