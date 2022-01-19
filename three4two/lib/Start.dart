@@ -23,7 +23,7 @@ class Screen0 extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(top: 50, bottom: 20),
                       child: Text(
-                        "Welcome to TREE FOR TWO",
+                        "Welcome to \nTREE FOR TWO", textAlign: TextAlign.center,
                         style:
                             TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -38,7 +38,29 @@ class Screen0 extends StatelessWidget {
                         children: [
                           TextSpan(
                             text:
-                                "Confess your love to your loved ones and store your words forever on the blockchain! Let the tree of love grow, for each message it will get another leaf. By storing your messages on the blockchain they will be stored forever. That's better than etching your name in a real tree or writing your name on a lock. To write a message, click on GET STARTED and on the next page click on the ",
+                                "Confess your love to your loved ones and store your words forever on the blockchain! Let the tree of love grow, for each message it will get another leaf. By storing your messages on the blockchain they will be stored forever. That's even better than etching your name in a real tree or writing your name on a lock. To write a message, click on  ",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                          WidgetSpan(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.pink,
+                                  border: Border.all(color: Colors.pink),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(7))),
+                              child: Container(
+                                padding: EdgeInsets.only(left: 10, right: 8),
+                                child: Text(
+                                  "Get started", style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                          TextSpan(
+                            text: "  and on the next page click on the ",
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.grey.shade600,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
+import 'package:three4two/widget/loading.dart';
 import 'package:three4two/widget/paywall_widget.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:three4two/Utils/store.dart';
 import 'package:three4two/api/purchase_api.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -25,45 +27,61 @@ Future fetchOffers(BuildContext context) async {
         .toList();
 
     showModalBottomSheet<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-              child: PaywallWidget(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          child: PaywallWidget(
             packages: packages,
             title: "Buy Message",
             description: "Write your love messgage to the blockchain",
             onClickedPackage: (package) async {
               await PurchaseApi.purchasePackage(package);
-              globals.recentTx = await sendToScript(
-                  globals.message, globals.name1, globals.name2);
-              writeJson(globals.txId.toString(), globals.recentTx);
-              globals.txId++;
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => Thanks()),
-                  (Route<dynamic> route) => false);
+              await purchase(context);
             },
-          ));
-        });
-
-    final offer = offerings.first;
-    print("Offer: $offer");
+          ),
+        );
+      },
+    );
   }
+  ;
+}
+
+Future purchase(context) async {
+  Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => loading(),
+        transitionDuration: Duration.zero,
+      ));
+
+  await Future.delayed(Duration(seconds: 10));
+
+  globals.recentTx =
+      await sendToScript(globals.message, globals.name1, globals.name2);
+  writeJson(globals.txId.toString(), globals.recentTx);
+  globals.txId++;
+  Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => Thanks()),
+      (Route<dynamic> route) => false);
 }
 
 Future<String> sendToScript(nachricht, name1, name2) async {
+  await Future.delayed(Duration(seconds: 2));
   try {
     Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
-
+    print(form);
     var send = await http.post(
         Uri.parse(
             'http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
+    print(send.body);
+
     final txId = (json.decode(send.body)).substring(8, 74);
 
     return txId;
   } on Exception catch (e) {
-    return "Oops";
+    return e.toString() + "oops";
   }
 }
