@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
+import 'package:three4two/Error.dart';
 import 'package:three4two/widget/loading.dart';
 import 'package:three4two/widget/paywall_widget.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
@@ -13,7 +14,7 @@ import 'package:http/http.dart' as http;
 
 Future fetchOffers(BuildContext context) async {
   final offerings = await PurchaseApi.fetchOffers();
-
+  bool success = false;
   if (offerings.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -35,8 +36,26 @@ Future fetchOffers(BuildContext context) async {
             title: "Buy Message",
             description: "Write your love messgage to the blockchain",
             onClickedPackage: (package) async {
-              await PurchaseApi.purchasePackage(package);
-              await purchase(context);
+              Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation1, animation2) => loading(),
+                    transitionDuration: Duration.zero,
+                  ));
+              success = await PurchaseApi.purchasePackage(package);
+              if (success == true) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Writing your message to the blockchain"),
+                  ),
+                );
+                await purchase(context);
+              } else {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (context) => ErrorWithTransaction()),
+                    (Route<dynamic> route) => false);
+              }
             },
           ),
         );
@@ -47,15 +66,6 @@ Future fetchOffers(BuildContext context) async {
 }
 
 Future purchase(context) async {
-  Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => loading(),
-        transitionDuration: Duration.zero,
-      ));
-
-  await Future.delayed(Duration(seconds: 10));
-
   globals.recentTx =
       await sendToScript(globals.message, globals.name1, globals.name2);
   writeJson(globals.txId.toString(), globals.recentTx);

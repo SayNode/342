@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/Utils/store.dart';
+import 'package:three4two/widget/loading.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:three4two/TxOnClick.dart';
 import 'Utils/globals.dart' as globals;
 import 'dart:convert';
+import 'package:http/http.dart' as http;
+import "package:hex/hex.dart";
 
 class OwnTx extends StatefulWidget {
   const OwnTx({Key? key}) : super(key: key);
@@ -14,6 +17,8 @@ class OwnTx extends StatefulWidget {
 }
 
 List<String> txID = [];
+String names = "";
+String message = "";
 
 class _OwnTx extends State<OwnTx> {
   @override
@@ -67,12 +72,21 @@ class _OwnTx extends State<OwnTx> {
                             ],
                           ),
                         ),
-                        onTap: () {
+                        onTap: () async {
+                          Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation1, animation2) =>
+                                        loading(),
+                                transitionDuration: Duration.zero,
+                              ));
+                          await getMessagefromTransaction(txID[index]);
                           Navigator.push(
                             context,
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
-                                  TxOnClick(),
+                                  TxOnClick(names: names, message: message),
                               transitionDuration: Duration.zero,
                             ),
                           );
@@ -90,4 +104,29 @@ class _OwnTx extends State<OwnTx> {
 Future getTxId() async {
   txID.clear();
   txID = await readJson() as List<String>;
+}
+
+Future getMessagefromTransaction(_id) async {
+  try {
+    var txData = await http
+        .get(Uri.parse('http://3.71.71.72:8669//transactions/' + _id));
+    var txDataDecoded = json.decode(txData.body)["clauses"][0]["data"];
+
+    var length = txDataDecoded.length;
+
+    if (length > 330) {
+      String name1 = ascii.decode(HEX
+          .decode(txDataDecoded.substring(length - 5 * 64, length - 4 * 64)));
+      String name2 = ascii.decode(HEX
+          .decode(txDataDecoded.substring(length - 3 * 64, length - 2 * 64)));
+      message = ascii
+          .decode(HEX.decode(txDataDecoded.substring(length - 64, length)));
+      names = name1 + " + " + name2;
+      print(names);
+      print(message);
+    }
+  } on Exception catch (e) {
+    names = "Error";
+    message = "There was an error";
+  }
 }

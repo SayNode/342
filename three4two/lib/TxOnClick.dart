@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class TxOnClick extends StatelessWidget {
+  final String names;
+  final String message;
+  TxOnClick({Key? key, required this.names, required this.message})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     precacheImage(AssetImage("assets/UI/UIBG.png"), context);
@@ -29,7 +34,7 @@ class TxOnClick extends StatelessWidget {
                       border: Border.all(color: Colors.white, width: 5),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(
-                    "Your names",
+                    names,
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
@@ -39,7 +44,7 @@ class TxOnClick extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(30),
             child: Text(
-              "Your message",
+              message,
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
               textAlign: TextAlign.center,
             ),
