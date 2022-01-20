@@ -68,11 +68,10 @@ Future purchase(context) async {
 Future<String> sendToScript(nachricht, name1, name2) async {
   await Future.delayed(Duration(seconds: 2));
   try {
-    Map form = {"nachricht": nachricht, "name1": name1, "name2": name2};
-    print(form);
+    Map form = {'nachricht': nachricht, 'name1': name1, 'name2': name2};
     var send = await http.post(
         Uri.parse(
-            'http://flaskserver-env.eba-xkfx7gup.eu-central-1.elasticbeanstalk.com/'),
+            'http://flask342server-env.eba-px4kqwum.eu-central-1.elasticbeanstalk.com/'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
