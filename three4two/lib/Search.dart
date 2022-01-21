@@ -102,6 +102,17 @@ class _Search extends State<Search> {
                       ),
                       onPressed: () async {
                         getMessage(context, transactionID);
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                                TreeOnClick(
+                              names: names,
+                              message: message,
+                            ),
+                            transitionDuration: Duration.zero,
+                          ),
+                        );
                       },
                     ),
                   )
@@ -114,33 +125,27 @@ class _Search extends State<Search> {
 }
 
 Future getMessage(context, txID) async {
-  var getTransaction =
-      await http.get(Uri.parse('http://3.71.71.72:8669/transactions/$txID'));
-  print(getTransaction.body);
+  try {
+    var getTransaction =
+        await http.get(Uri.parse('http://3.71.71.72:8669/transactions/$txID'));
+    print(getTransaction.body);
 
-  Map<String, dynamic> nodeResponse = json.decode(getTransaction.body);
-  var numberOfEvents = nodeResponse.length;
+    Map<String, dynamic> nodeResponse = json.decode(getTransaction.body);
 
-  String data = nodeResponse["clauses"][0]["data"];
+    String data = nodeResponse["clauses"][0]["data"];
 
-  var length = data.length;
-  if (length > 330) {
-    String name1 = ascii
-        .decode(HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
-    String name2 = ascii
-        .decode(HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
-    message = ascii.decode(HEX.decode(data.substring(length - 64, length)));
-    names = name1 + " + " + name2;
+    var length = data.length;
+    if (length > 330) {
+      String name1 = ascii
+          .decode(HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
+      String name2 = ascii
+          .decode(HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
+      message = ascii.decode(HEX.decode(data.substring(length - 64, length)));
+      names = name1 + " + " + name2;
+    }
+  } on Exception catch (e) {
+    print(e);
+    names = "Error";
+    message = "No transaction found";
   }
-
-  Navigator.push(
-    context,
-    PageRouteBuilder(
-      pageBuilder: (context, animation1, animation2) => TreeOnClick(
-        names: names,
-        message: message,
-      ),
-      transitionDuration: Duration.zero,
-    ),
-  );
 }

@@ -40,16 +40,24 @@ class Tree extends StatelessWidget {
               size: 100.0,
             ));
           } else {
-            if (snapshot.hasError)
+            if (snapshot.hasError) {
               return Center(
-                  child: Text(
-                'Error: ${snapshot.error}',
-                style: TextStyle(color: Colors.white),
-              ));
-            else
+                child: Text(
+                  'Error: ${snapshot.error}',
+                  style: TextStyle(color: Colors.white),
+                ),
+              );
+            } else if (snapshot.data == null) {
+              return Center(
+                child: Text(
+                  'There are no messages on this tree',
+                  style: TextStyle(color: Colors.white),
+                ),
+              );
+            } else
               return Center(
                 child: ListView.builder(
-                  cacheExtent: 1000,
+                  cacheExtent: 10,
                   itemBuilder: (BuildContext ctx, int index) {
                     return GestureDetector(
                       child: Stack(
@@ -129,7 +137,7 @@ Future getNames() async {
       "range": {"unit": "block", "from": 0, "to": best},
       "options": {"offset": 0, "limit": 100},
       "criteriaSet": [
-        {"address": "0x6f7BeC0AFcfF5d87d1817d6a3291E96CbD156944"}
+        {"address": "0xe794a3d22e6667676D66a82533Da99fd6Ce24ed0"}
       ],
       "order": "asc"
     };
