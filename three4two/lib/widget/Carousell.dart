@@ -14,7 +14,7 @@ Widget imageCarousel() {
           enableInfiniteScroll: false,
         ),
         items: [
-          "http://tree-env.eba-dgwssy47.eu-central-1.elasticbeanstalk.com/tree",
+          "http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com//tree",
         ].map((i) {
           return Builder(
             builder: (BuildContext context) {
@@ -26,7 +26,7 @@ Widget imageCarousel() {
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
                   child: GestureDetector(
                       child: Image.network(
-                          "http://tree-env.eba-dgwssy47.eu-central-1.elasticbeanstalk.com/tree",
+                          "http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com//tree",
                           fit: BoxFit.fitHeight),
                       onTap: () {
                         Navigator.push<Widget>(

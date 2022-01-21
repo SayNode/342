@@ -173,7 +173,7 @@ Future getNames() async {
       "range": {"unit": "block", "from": 0, "to": best},
       "options": {"offset": 0, "limit": 100},
       "criteriaSet": [
-        {"address": "0xe794a3d22e6667676D66a82533Da99fd6Ce24ed0"}
+        {"address": "0x5Aa126412a3DAac16592a167606316b68f293B50"}
       ],
       "order": "asc"
     };
