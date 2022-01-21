@@ -57,13 +57,12 @@ class Tree extends StatelessWidget {
                         clipBehavior: Clip.none,
                         children: <Widget>[
                           FadeInImage(
-                            placeholder: AssetImage("assets/images/himmel1.png"),
+                            placeholder:
+                                AssetImage("assets/images/himmel1.png"),
                             image: AssetImage(
                               himmel[Random().nextInt(7)],
-                              
                             ),
                             fadeInDuration: Duration(seconds: 1),
-                            
                           ),
                           FractionallySizedBox(
                             alignment: Alignment.center,
@@ -135,7 +134,7 @@ Future getNames() async {
       "order": "asc"
     };
     var sendToNode = await http.post(
-        Uri.parse('https://sync-testnet.vechain.org/logs/event'),
+        Uri.parse('http://3.71.71.72:8669/logs/event'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 
