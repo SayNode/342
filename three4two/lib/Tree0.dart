@@ -48,6 +48,48 @@ class Tree extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               );
+            } else if (snapshot.data == null && bothNames.length == 0) {
+              return Center(
+                child: Container(
+                  margin: EdgeInsets.all(30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'There are no messages on this tree',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                        textAlign: TextAlign.center,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 20),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(50),
+                              primary: Colors.white),
+                          child: Text(
+                            'Write the first message',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () async {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation1, animation2) =>
+                                        Write(),
+                                transitionDuration: Duration.zero,
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
             } else
               return Center(
                 child: ListView.builder(
