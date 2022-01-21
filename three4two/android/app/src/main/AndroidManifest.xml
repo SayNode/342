@@ -27,7 +27,7 @@
 </queries>
 
    <application
-        android:label="Tree42"
+        android:label="Tree For Two"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

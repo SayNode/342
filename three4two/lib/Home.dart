@@ -5,8 +5,18 @@ import 'package:three4two/Search.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';
 import 'package:share/share.dart';
+import 'package:three4two/Tree0.dart';
 
-class Home extends StatelessWidget {
+import 'package:carousel_slider/carousel_slider.dart';
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _Home();
+}
+
+class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +33,10 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              child: imageCarousel(),
+              child: Container(
+                height: 400.0,
+                child: imageCarousel(),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -35,6 +48,7 @@ class Home extends StatelessWidget {
                       size: 24.0,
                     ),
                     onPressed: () {
+                      setState(() {});
                       Navigator.push(
                           context,
                           PageRouteBuilder(

@@ -3,7 +3,14 @@ import 'package:three4two/Home.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:share/share.dart';
 
-class Thanks extends StatelessWidget {
+class Thanks extends StatefulWidget {
+  const Thanks({Key? key}) : super(key: key);
+
+  @override
+  State<Thanks> createState() => _Thanks();
+}
+
+class _Thanks extends State<Thanks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +80,7 @@ class Thanks extends StatelessWidget {
                             return Home();
                           },
                         ),
-                      );
+                      ).then((value) => setState(() {}));
                     },
                   ),
                 ],
