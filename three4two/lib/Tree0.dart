@@ -6,6 +6,7 @@ import 'package:three4two/TreeOnClick.dart';
 import "package:hex/hex.dart";
 import 'package:three4two/Utils/globals.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:three4two/Write.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 List<String> himmel = [
@@ -44,13 +45,6 @@ class Tree extends StatelessWidget {
               return Center(
                 child: Text(
                   'Error: ${snapshot.error}',
-                  style: TextStyle(color: Colors.white),
-                ),
-              );
-            } else if (snapshot.data == null) {
-              return Center(
-                child: Text(
-                  'There are no messages on this tree',
                   style: TextStyle(color: Colors.white),
                 ),
               );
