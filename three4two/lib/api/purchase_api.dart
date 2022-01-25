@@ -5,12 +5,12 @@ String _apiKey = "";
 class PurchaseApi {
   static setup(String apiKey) {
     _apiKey = apiKey;
-    print(_apiKey);
   }
 
   static Future init() async {
     await Purchases.setDebugLogsEnabled(true);
     await Purchases.setup(_apiKey);
+    print(_apiKey);
   }
 
   static Future<List<Offering>> fetchOffers() async {
