@@ -10,11 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
+import 'dart:io' show Platform;
 
 import 'package:three4two/api/purchase_api.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  if (Platform.isAndroid) {
+    await PurchaseApi.setup("goog_UYKeLtkxkTOeYFYpXIbQodzNXJt");
+  } else if (Platform.isIOS) {
+    await PurchaseApi.setup("appl_eGHnRnNehLMIkPZUbqAedqgjBND");
+  }
   await PurchaseApi.init();
   runApp(MyApp());
 }

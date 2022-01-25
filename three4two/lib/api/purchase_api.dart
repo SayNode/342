@@ -1,7 +1,12 @@
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+String _apiKey = "";
+
 class PurchaseApi {
-  static const _apiKey = "goog_UYKeLtkxkTOeYFYpXIbQodzNXJt";
+  static setup(String apiKey) {
+    _apiKey = apiKey;
+    print(_apiKey);
+  }
 
   static Future init() async {
     await Purchases.setDebugLogsEnabled(true);
