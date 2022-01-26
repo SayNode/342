@@ -80,7 +80,7 @@ class _Write extends State<Write> {
                             );
                           },
                           inputFormatters: [
-                            LengthLimitingTextInputFormatter(10),
+                            LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
                               filled: true,
@@ -118,7 +118,7 @@ class _Write extends State<Write> {
                             );
                           },
                           inputFormatters: [
-                            LengthLimitingTextInputFormatter(10),
+                            LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
                               filled: true,
@@ -152,7 +152,7 @@ class _Write extends State<Write> {
                       );
                     },
                     inputFormatters: [
-                      LengthLimitingTextInputFormatter(200),
+                      LengthLimitingTextInputFormatter(140),
                     ],
                     decoration: InputDecoration(
                       filled: true,
@@ -160,7 +160,7 @@ class _Write extends State<Write> {
                       hintText: "your love message",
                       helperStyle: TextStyle(color: Colors.white),
                       counterText:
-                          '${(200 - globals.message.length).toString()} characters left',
+                          '${(140 - globals.message.length).toString()} characters left',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:

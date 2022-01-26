@@ -5,7 +5,7 @@ import 'package:three4two/Search.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';
 import 'package:share/share.dart';
-import 'package:three4two/Tree0.dart';
+import 'package:launch_review/launch_review.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -95,7 +95,7 @@ class _Home extends State<Home> {
                     size: 24.0,
                   ),
                   onPressed: () {
-                    Share.share("www.saynode.ch");
+                    LaunchReview.launch();
                   },
                 ),
               ],

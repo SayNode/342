@@ -27,15 +27,21 @@ class TreeOnClick extends StatelessWidget {
               Positioned(
                 top: (MediaQuery.of(context).size.width) / 4,
                 child: Container(
-                  padding:
-                      EdgeInsets.only(top: 5, bottom: 5, left: 15, right: 15),
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  constraints: BoxConstraints(
+                      minHeight: 50,
+                      maxWidth: MediaQuery.of(context).size.width - 20),
                   decoration: BoxDecoration(
                       color: Colors.pink,
                       border: Border.all(color: Colors.white, width: 5),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(
                     names,
-                    style: TextStyle(fontSize: 30, color: Colors.white),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -63,6 +69,7 @@ class TreeOnClick extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
+                  Navigator.pop(context);
                   Navigator.pop(context);
                 }),
           )

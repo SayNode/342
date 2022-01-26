@@ -45,27 +45,52 @@ class About extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(50),
-                    primary: Colors.pink),
-                child: Text(
-                  'Visit Us',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-                onPressed: () async {
-                  final url = 'https://saynode.ch';
-                  if (await canLaunch(url)) {
-                    await launch(url);
-                  }
-                },
+            ListTile(
+              contentPadding: EdgeInsets.all(30),
+              title: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size.fromHeight(40),
+                          primary: Colors.pink),
+                      child: Text(
+                        'Visit Us',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () async {
+                        final url = 'https://saynode.ch';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        }
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size.fromHeight(40),
+                            primary: Colors.pink),
+                        child: Text(
+                          'back',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
+                  ),
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),

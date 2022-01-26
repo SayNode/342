@@ -87,35 +87,61 @@ class _Search extends State<Search> {
                           hintText: "Your transaction ID (Starts with 0x...)"),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(30),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50),
-                          primary: Colors.pink),
-                      child: Text(
-                        'Search message',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () async {
-                        getMessage(context, transactionID);
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                                TreeOnClick(
-                              names: names,
-                              message: message,
+                  ListTile(
+                    contentPadding: EdgeInsets.all(30),
+                    title: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size.fromHeight(40),
+                                primary: Colors.pink),
+                            child: Text(
+                              'Search ',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            transitionDuration: Duration.zero,
+                            onPressed: () async {
+                              await getMessage(context, transactionID);
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder:
+                                      (context, animation1, animation2) =>
+                                          TreeOnClick(
+                                    names: names,
+                                    message: message,
+                                  ),
+                                  transitionDuration: Duration.zero,
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  minimumSize: Size.fromHeight(40),
+                                  primary: Colors.pink),
+                              child: Text(
+                                'back',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              }),
+                        ),
+                      ],
                     ),
-                  )
+                  ),
                 ],
               )),
         ),
@@ -136,11 +162,9 @@ Future getMessage(context, txID) async {
 
     var length = data.length;
     if (length > 330) {
-      String name1 = ascii
-          .decode(HEX.decode(data.substring(length - 5 * 64, length - 4 * 64)));
-      String name2 = ascii
-          .decode(HEX.decode(data.substring(length - 3 * 64, length - 2 * 64)));
-      message = ascii.decode(HEX.decode(data.substring(length - 64, length)));
+      String name1 = ascii.decode(HEX.decode(data.substring(266, 330)));
+      String name2 = ascii.decode(HEX.decode(data.substring(394, 458)));
+      message = ascii.decode(HEX.decode(data.substring(522, length)));
       names = name1 + " + " + name2;
     }
   } on Exception catch (e) {

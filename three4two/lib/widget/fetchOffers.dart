@@ -79,6 +79,7 @@ Future<String> sendToScript(nachricht, name1, name2) async {
   await Future.delayed(Duration(seconds: 2));
   try {
     Map form = {'nachricht': nachricht, 'name1': name1, 'name2': name2};
+    print(form);
     var send = await http.post(
         Uri.parse(
             'http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com'),

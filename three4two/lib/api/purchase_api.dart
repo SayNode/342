@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 String _apiKey = "";
@@ -5,8 +7,11 @@ String _apiKey = "";
 class PurchaseApi {
   static Future init() async {
     await Purchases.setDebugLogsEnabled(true);
-    await Purchases.setup(
-        "appl_eGHnRnNehLMIkPZUbqAedqgjBND"); //"goog_UYKeLtkxkTOeYFYpXIbQodzNXJt
+    if (Platform.isAndroid) {
+      await Purchases.setup("goog_UYKeLtkxkTOeYFYpXIbQodzNXJt");
+    } else if (Platform.isIOS) {
+      await Purchases.setup("appl_eGHnRnNehLMIkPZUbqAedqgjBND");
+    }
   }
 
   static Future<List<Offering>> fetchOffers() async {

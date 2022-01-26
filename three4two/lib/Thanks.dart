@@ -49,7 +49,7 @@ class _Thanks extends State<Thanks> {
               ),
               Container(
                 padding: EdgeInsets.all(30),
-                child: Text(
+                child: SelectableText(
                   "Your Transaction ID: " + globals.recentTx,
                   style: TextStyle(color: Colors.grey.shade600, fontSize: 20),
                 ),

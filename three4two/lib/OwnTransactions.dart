@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:three4two/TreeOnClick.dart';
 import 'package:three4two/Utils/store.dart';
 import 'package:three4two/widget/loading.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -86,7 +87,7 @@ class _OwnTx extends State<OwnTx> {
                             context,
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
-                                  TxOnClick(names: names, message: message),
+                                  TreeOnClick(names: names, message: message),
                               transitionDuration: Duration.zero,
                             ),
                           );
@@ -110,17 +111,14 @@ Future getMessagefromTransaction(_id) async {
   try {
     var txData = await http
         .get(Uri.parse('http://3.71.71.72:8669//transactions/' + _id));
-    var txDataDecoded = json.decode(txData.body)["clauses"][0]["data"];
+    var data = json.decode(txData.body)["clauses"][0]["data"];
 
-    var length = txDataDecoded.length;
-
+    var length = data.length;
+    print(data);
     if (length > 330) {
-      String name1 = ascii.decode(HEX
-          .decode(txDataDecoded.substring(length - 5 * 64, length - 4 * 64)));
-      String name2 = ascii.decode(HEX
-          .decode(txDataDecoded.substring(length - 3 * 64, length - 2 * 64)));
-      message = ascii
-          .decode(HEX.decode(txDataDecoded.substring(length - 64, length)));
+      String name1 = ascii.decode(HEX.decode(data.substring(266, 330)));
+      String name2 = ascii.decode(HEX.decode(data.substring(394, 458)));
+      message = ascii.decode(HEX.decode(data.substring(522, length)));
       names = name1 + " + " + name2;
       print(names);
       print(message);
