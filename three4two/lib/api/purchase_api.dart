@@ -3,14 +3,10 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 String _apiKey = "";
 
 class PurchaseApi {
-  static setup(String apiKey) {
-    _apiKey = apiKey;
-  }
-
   static Future init() async {
     await Purchases.setDebugLogsEnabled(true);
-    await Purchases.setup(_apiKey);
-    print(_apiKey);
+    await Purchases.setup(
+        "appl_eGHnRnNehLMIkPZUbqAedqgjBND"); //"goog_UYKeLtkxkTOeYFYpXIbQodzNXJt
   }
 
   static Future<List<Offering>> fetchOffers() async {

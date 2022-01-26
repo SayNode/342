@@ -36,7 +36,6 @@ dependencies:
   share: ^2.0.4
   purchases_flutter: ^3.0.0
   flutter_spinkit: ^5.1.0
-  fluttertoast: ^8.0.8
   url_launcher: ^6.0.18
   hex: ^0.2.0
   path_provider: ^2.0.8
