@@ -127,7 +127,7 @@ class Tree extends StatelessWidget {
                                   style: TextStyle(
                                       color: Color(0xffDFD7C8).withOpacity(0.8),
                                       fontSize:
-                                          30 * (Random().nextDouble() + 0.8),
+                                          30 * (Random().nextDouble() + 0.5),
                                       fontWeight: FontWeight.bold,
                                       fontFamily: "CARVEDWOOD"),
                                 ),
@@ -191,7 +191,7 @@ Future getNames() async {
         String data = nodeResponse[i]["data"];
         print(data);
         var length = data.length;
-        if (length > 500) {
+        if (length > 700) {
           String name1 = ascii.decode(HEX.decode(data.substring(450, 514)));
           String name2 = ascii.decode(HEX.decode(data.substring(578, 642)));
           String message =

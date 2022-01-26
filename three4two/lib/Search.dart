@@ -2,6 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import "package:hex/hex.dart";
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:three4two/TxOnClick.dart';
 import 'Utils/globals.dart' as globals;
 import 'dart:convert';
 import 'package:three4two/TreeOnClick.dart';
@@ -110,9 +111,10 @@ class _Search extends State<Search> {
                                 PageRouteBuilder(
                                   pageBuilder:
                                       (context, animation1, animation2) =>
-                                          TreeOnClick(
+                                          TxOnClick(
                                     names: names,
                                     message: message,
+                                    txID: transactionID,
                                   ),
                                   transitionDuration: Duration.zero,
                                 ),

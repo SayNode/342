@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class TxOnClick extends StatelessWidget {
   final String names;
   final String message;
-  TxOnClick({Key? key, required this.names, required this.message})
+  final String txID;
+  TxOnClick(
+      {Key? key,
+      required this.names,
+      required this.message,
+      required this.txID})
       : super(key: key);
 
   @override
@@ -29,6 +34,7 @@ class TxOnClick extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   constraints: BoxConstraints(
+                      minHeight: 50,
                       maxWidth: MediaQuery.of(context).size.width - 20),
                   decoration: BoxDecoration(
                       color: Colors.pink,
@@ -47,9 +53,17 @@ class TxOnClick extends StatelessWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(right: 30, left: 30),
+            padding: EdgeInsets.all(30),
             child: Text(
-              message,
+              "Message: " + message,
+              style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(30),
+            child: SelectableText(
+              "Transaction ID: " + txID,
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
               textAlign: TextAlign.center,
             ),
@@ -61,7 +75,7 @@ class TxOnClick extends StatelessWidget {
                     minimumSize: const Size.fromHeight(50),
                     primary: Colors.pink),
                 child: Text(
-                  'back',
+                  'go back',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,

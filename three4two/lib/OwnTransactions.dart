@@ -87,7 +87,10 @@ class _OwnTx extends State<OwnTx> {
                             context,
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
-                                  TreeOnClick(names: names, message: message),
+                                  TxOnClick(
+                                      names: names,
+                                      message: message,
+                                      txID: txID[index]),
                               transitionDuration: Duration.zero,
                             ),
                           );
