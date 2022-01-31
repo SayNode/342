@@ -154,8 +154,8 @@ class _Search extends State<Search> {
 
 Future getMessage(context, txID) async {
   try {
-    var getTransaction =
-        await http.get(Uri.parse('http://3.71.71.72:8669/transactions/$txID'));
+    var getTransaction = await http
+        .get(Uri.parse('http://3.124.193.149:8669/transactions/$txID'));
     print(getTransaction.body);
 
     Map<String, dynamic> nodeResponse = json.decode(getTransaction.body);

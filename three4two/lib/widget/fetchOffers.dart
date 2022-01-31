@@ -82,7 +82,7 @@ Future<String> sendToScript(nachricht, name1, name2) async {
     print(form);
     var send = await http.post(
         Uri.parse(
-            'http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com'),
+            'http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com/'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 

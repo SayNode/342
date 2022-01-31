@@ -24,7 +24,7 @@ class _imageCarousel extends State<imageCarousel> {
             enableInfiniteScroll: false,
           ),
           items: [
-            "http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com//tree",
+            "http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com//tree",
           ].map((i) {
             return Builder(
               builder: (BuildContext context) {
@@ -36,7 +36,7 @@ class _imageCarousel extends State<imageCarousel> {
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     child: GestureDetector(
                         child: Image.network(
-                            "http://tree2-env.eba-fi58hgdk.eu-central-1.elasticbeanstalk.com//tree",
+                            "http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com//tree",
                             fit: BoxFit.fitHeight),
                         onTap: () {
                           setState(() {});
