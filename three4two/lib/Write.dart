@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import "package:three4two/widget/fetchOffers.dart";
+import 'package:profanity_filter/profanity_filter.dart';
 
 class Write extends StatefulWidget {
   const Write({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _Write extends State<Write> {
   String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
+  List<String> badWordList = ["Hitler", "Nazi", "Sieg Heil"];
 
   @override
   Widget build(BuildContext context) {
@@ -185,8 +187,22 @@ class _Write extends State<Write> {
                       children: [
                         ElevatedButton(
                             onPressed: () async {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              await fetchOffers(context);
+                              final filter = ProfanityFilter.filterAdditionally(
+                                  badWordList);
+                              if (filter.hasProfanity(globals.message) ||
+                                  filter.hasProfanity(globals.name1) ||
+                                  filter.hasProfanity(globals.name2)) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content:
+                                        Text("Please only write nice things"),
+                                  ),
+                                );
+                              } else {
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
+                                await fetchOffers(context);
+                              }
                             },
                             child: Row(children: [
                               Text(
