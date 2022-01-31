@@ -119,8 +119,8 @@ Future getMessagefromTransaction(_id) async {
     var length = data.length;
     print(data);
     if (length > 330) {
-      String name1 = ascii.decode(HEX.decode(data.substring(266, 330)));
-      String name2 = ascii.decode(HEX.decode(data.substring(394, 458)));
+      String name1 = utf8.decode(HEX.decode(data.substring(266, 330)));
+      String name2 = utf8.decode(HEX.decode(data.substring(394, 458)));
       message = ascii.decode(HEX.decode(data.substring(522, length)));
       names = name1 + " + " + name2;
       print(names);

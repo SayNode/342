@@ -90,7 +90,7 @@ flutter:
   fonts:
     - family: CARVEDWOOD
       fonts:
-        - asset: assets/fonts/CARVEDWOODRegular.ttf
+        - asset: assets/fonts/CARVEDWOOD342.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

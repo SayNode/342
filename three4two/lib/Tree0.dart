@@ -183,25 +183,26 @@ Future getNames() async {
         body: json.encode(form));
 
     List<dynamic> nodeResponse = json.decode(sendToNode.body);
-    print(nodeResponse);
+
     var numberOfEvents = nodeResponse.length;
 
     for (int i = 1; i < numberOfEvents; i++) {
       try {
         String data = nodeResponse[i]["data"];
-        print(data);
+
         var length = data.length;
         if (length > 700) {
-          String name1 = ascii.decode(HEX.decode(data.substring(450, 514)));
-          String name2 = ascii.decode(HEX.decode(data.substring(578, 642)));
-          String message =
-              ascii.decode(HEX.decode(data.substring(705, length)));
+          String name1 = utf8.decode(HEX.decode(data.substring(450, 514)));
+          String name2 = utf8.decode(HEX.decode(data.substring(578, 642)));
+          String message = utf8.decode(HEX.decode(data.substring(705, length)));
           String names = name1 + " + " + name2;
 
           bothNames.add(names);
           fullMessage.add(message);
         }
-      } on Exception catch (e) {}
+      } on Exception catch (e) {
+        print(e);
+      }
     }
     return;
   } on Exception catch (e) {
