@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Tree0.dart';
-import 'package:three4two/Tree1.dart';
-import 'package:three4two/Tree2.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 
 class imageCarousel extends StatefulWidget {

@@ -10,13 +10,13 @@ import 'package:three4two/Write.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 List<String> himmel = [
-  "assets/images/himmel1.png",
-  "assets/images/himmel2.png",
-  "assets/images/himmel3.png",
-  "assets/images/himmel4.png",
-  "assets/images/himmel5.png",
-  "assets/images/himmel6.png",
-  "assets/images/himmel7.png",
+  "assets/images/Sky(1).png",
+  "assets/images/Sky(2).png",
+  "assets/images/Sky(3).png",
+  "assets/images/Sky(4).png",
+  "assets/images/Sky(5).png",
+  "assets/images/Sky(6).png",
+  "assets/images/Sky(7).png",
 ];
 
 List<String> bothNames = [];
@@ -102,7 +102,7 @@ class Tree extends StatelessWidget {
                         children: <Widget>[
                           FadeInImage(
                             placeholder:
-                                AssetImage("assets/images/himmel1.png"),
+                                AssetImage("assets/images/transparent.png"),
                             image: AssetImage(
                               himmel[Random().nextInt(7)],
                             ),
@@ -110,8 +110,8 @@ class Tree extends StatelessWidget {
                           ),
                           FractionallySizedBox(
                             alignment: Alignment.center,
-                            widthFactor: 0.7,
-                            child: Image.asset("assets/images/Baumstamm.png"),
+                            widthFactor: 0.75,
+                            child: Image.asset("assets/images/trunk.png"),
                           ),
                           FractionallySizedBox(
                             widthFactor: 0.7,
