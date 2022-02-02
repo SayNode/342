@@ -95,7 +95,10 @@ class _Home extends State<Home> {
                     size: 24.0,
                   ),
                   onPressed: () {
-                    LaunchReview.launch();
+                    LaunchReview.launch(
+                      androidAppId: "ch.saynode.three42",
+                      iOSAppId: "1606557166",
+                    );
                   },
                 ),
               ],
