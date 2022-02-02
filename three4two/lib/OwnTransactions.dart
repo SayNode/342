@@ -113,7 +113,7 @@ Future getTxId() async {
 Future getMessagefromTransaction(_id) async {
   try {
     var txData = await http
-        .get(Uri.parse('http://3.71.71.72:8669//transactions/' + _id));
+        .get(Uri.parse('http://3.124.193.149:8669//transactions/' + _id));
     var data = json.decode(txData.body)["clauses"][0]["data"];
 
     var length = data.length;
