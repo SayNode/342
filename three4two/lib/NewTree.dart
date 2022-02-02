@@ -15,6 +15,8 @@ class _newTree extends State<newTree> {
   TextEditingController _controller = TextEditingController();
   TextEditingController name1Controller = TextEditingController();
   TextEditingController name2Controller = TextEditingController();
+  TextEditingController treeNameController = TextEditingController();
+
   bool myNewButton = false;
   String myText = "plant";
   String txID = "";
@@ -97,7 +99,7 @@ class _newTree extends State<newTree> {
                         ),
                       ),
                     ),
-                    controller: _controller,
+                    controller: treeNameController,
                   ),
                 ),
                 Container(
