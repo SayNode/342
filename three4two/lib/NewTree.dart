@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
-import "package:three4two/widget/fetchOffers.dart";
+import "package:three4two/widget/fetchTreeOffers.dart";
 
 class newTree extends StatefulWidget {
   const newTree({Key? key}) : super(key: key);
@@ -253,7 +253,7 @@ class _newTree extends State<newTree> {
                             onPressed: () async {
                               FocusScope.of(context).requestFocus(FocusNode());
 
-                              await fetchOffers(context);
+                              await fetchTreeOffers(context);
                             },
                             child: Row(children: [
                               Text(
