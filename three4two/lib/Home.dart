@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:three4two/NewTree.dart';
 import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/widget/Carousell.dart';
 import 'package:three4two/Search.dart';
@@ -30,12 +31,41 @@ class _Home extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              child: Container(
-                height: 400.0,
-                child: imageCarousel(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: imageCarousel(),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 30, right: 30),
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size.fromHeight(40),
+                            primary: Colors.red.shade50),
+                        child: Text(
+                          'Plant your own tree',
+                          style: TextStyle(
+                              color: Colors.pink,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) =>
+                                  newTree(),
+                              transitionDuration: Duration.zero,
+                            ),
+                          );
+                        }),
+                  ),
+                ],
               ),
             ),
             Row(
