@@ -80,11 +80,8 @@ Future<String> sendToScript(nachricht, name1, name2) async {
   try {
     Map form = {'nachricht': nachricht, 'name1': name1, 'name2': name2};
     print(form);
-    var send = await http.post(
-        Uri.parse(
-            'http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com/'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(form));
+    var send = await http.post(Uri.parse(globals.serverURL),
+        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
     print(send.body);
 

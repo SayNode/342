@@ -165,7 +165,7 @@ Future getNames() async {
   bothNames.clear();
   fullMessage.clear();
   var bestBlock =
-      await http.get(Uri.parse('http://3.124.193.149:8669/blocks/best'));
+      await http.get(Uri.parse('http://3.71.71.72:8669/blocks/best'));
   var bestBlockList = json.decode(bestBlock.body);
   int best = (bestBlockList['number']);
   try {
@@ -173,12 +173,12 @@ Future getNames() async {
       "range": {"unit": "block", "from": 0, "to": best},
       "options": {"offset": 0, "limit": 100},
       "criteriaSet": [
-        {"address": "0x8F0DBffc066f9DEd3cDc5f283CA51f02237E7eD8"}
+        {"address": "0x6f7BeC0AFcfF5d87d1817d6a3291E96CbD156944"}
       ],
       "order": "asc"
     };
     var sendToNode = await http.post(
-        Uri.parse('http://3.124.193.149:8669/logs/event'),
+        Uri.parse('http://3.71.71.72:8669/logs/event'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(form));
 

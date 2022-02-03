@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Tree0.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:three4two/Utils/globals.dart' as globals;
 
 class imageCarousel extends StatefulWidget {
   const imageCarousel({Key? key}) : super(key: key);
@@ -22,9 +23,9 @@ class _imageCarousel extends State<imageCarousel> {
             enableInfiniteScroll: false,
           ),
           items: [
-            "http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com//tree",
-            "http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com//tree",
-            "http://mainnettree-env-1.eba-7ivna8vc.eu-central-1.elasticbeanstalk.com//tree"
+            globals.serverURL + "/tree",
+            globals.serverURL + "/tree",
+            globals.serverURL + "/tree",
           ].map((i) {
             return Builder(
               builder: (BuildContext context) {
