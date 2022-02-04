@@ -42,7 +42,7 @@ class _Home extends State<Home> {
                     child: imageCarousel(),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 30, right: 30),
+                    padding: EdgeInsets.only(left: 30, right: 30, top: 10),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size.fromHeight(40),

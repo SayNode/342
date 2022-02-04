@@ -30,13 +30,27 @@ class _imageCarousel extends State<imageCarousel> {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                         color: Colors.red[50],
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     child: GestureDetector(
-                        child: Image.network(i, fit: BoxFit.fitHeight),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              flex: 10,
+                              child: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Image.network(
+                                  i,
+                                ),
+                              ),
+                            ),
+                            Expanded(flex: 1, child: Text("TreeName"))
+                          ],
+                        ),
                         onTap: () {
                           setState(() {});
                           Navigator.push<Widget>(
