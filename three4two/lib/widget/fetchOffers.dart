@@ -8,60 +8,50 @@ import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:three4two/Utils/store.dart';
 import 'package:three4two/api/purchase_api.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future fetchOffers(BuildContext context) async {
-  final offerings = await PurchaseApi.fetchOffers();
+  Offerings offerings = await Purchases.getOfferings();
+  var packages;
+  packages = offerings.getOffering("messages")?.availablePackages;
   bool success = false;
-  if (offerings.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("No offerings found"),
-      ),
-    );
-  } else {
-    final packages = offerings
-        .map((offer) => offer.availablePackages)
-        .expand((pair) => pair)
-        .toList();
-
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          child: PaywallWidget(
-            packages: packages,
-            title: "Buy Message",
-            description: "Write your love messgage to the blockchain",
-            onClickedPackage: (package) async {
-              Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation1, animation2) => loading(),
-                    transitionDuration: Duration.zero,
-                  ));
-              success = await PurchaseApi.purchasePackage(package);
-              if (success == true) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text("Writing your message to the blockchain"),
-                  ),
-                );
-                await purchase(context);
-              } else {
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (context) => ErrorWithTransaction()),
-                    (Route<dynamic> route) => false);
-              }
-            },
-          ),
-        );
-      },
-    );
-  }
+  showModalBottomSheet<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        child: PaywallWidget(
+          packages: packages,
+          title: "Buy Message",
+          description: "Write your love messgage to the blockchain",
+          onClickedPackage: (package) async {
+            Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) => loading(),
+                  transitionDuration: Duration.zero,
+                ));
+            success = await PurchaseApi.purchasePackage(package);
+            if (success == true) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Writing your message to the blockchain"),
+                ),
+              );
+              await purchase(context);
+            } else {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (context) => ErrorWithTransaction()),
+                  (Route<dynamic> route) => false);
+            }
+          },
+        ),
+      );
+    },
+  );
   ;
 }
 

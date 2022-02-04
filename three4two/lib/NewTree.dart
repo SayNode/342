@@ -48,7 +48,7 @@ class _newTree extends State<newTree> {
                     child: Column(
                       children: [
                         Text(
-                          " Plant your tree",
+                          "Plant your tree",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _newTree extends State<newTree> {
                     child: Column(
                       children: [
                         Text(
-                          " Write your message",
+                          "Write your message",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
