@@ -52,7 +52,10 @@ class _imageCarousel extends State<imageCarousel> {
                                 ),
                               ),
                             ),
-                            Expanded(flex: 1, child: Text("TreeName"))
+                            Expanded(
+                                flex: 1,
+                                child:
+                                    Text(globals.treeNames[treeURL.indexOf(i)]))
                           ],
                         ),
                         onTap: () {
@@ -79,4 +82,7 @@ List treeURL = [
   globals.serverURL + "tree/" + globals.trees[3],
   globals.serverURL + "tree/" + globals.trees[4],
   globals.serverURL + "tree/" + globals.trees[5],
+  globals.serverURL + "tree/" + globals.trees[6],
+  globals.serverURL + "tree/" + globals.trees[7],
+  globals.serverURL + "tree/" + globals.trees[8],
 ];

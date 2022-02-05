@@ -55,7 +55,7 @@ class _Write extends State<Write> {
                         ),
                         Text(
                           "Be aware, that your message is stored permanently and can't be removed from the blockchain. \n \n Your message will be written to the tree:  " +
-                              globals.trees[globals.carouselIndex],
+                              globals.treeNames[globals.carouselIndex],
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
