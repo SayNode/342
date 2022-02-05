@@ -5,6 +5,7 @@ import 'package:three4two/widget/fetchOffers.dart';
 import 'dart:convert';
 import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:http/http.dart' as http;
+import "package:hex/hex.dart";
 
 class Screen0 extends StatelessWidget {
   @override
@@ -163,10 +164,14 @@ Future getTrees() async {
 }
 
 Future getTreeNames() async {
-  print(globals.trees.length);
-  var treeName = await http.post(Uri.parse(globals.nodeURL +
-      'accounts/' +
-      globals.trees[0] +
-      'storage/0x0000000000000000000000000000000000000000000000000000000000000004'));
-  print(treeName.body);
+  globals.treeNames = [];
+  for (var i = 0; i < globals.trees.length; i++) {
+    var treeName = await http.get(Uri.parse(globals.nodeURL +
+        'accounts/' +
+        globals.trees[i] +
+        '/storage/0x0000000000000000000000000000000000000000000000000000000000000004'));
+    var data = json.decode(treeName.body)["value"];
+    globals.treeNames
+        .add(utf8.decode(HEX.decode(data.substring(2, data.length))));
+  }
 }
