@@ -8,6 +8,7 @@ import 'package:three4two/Utils/globals.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:three4two/Write.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'Utils/globals.dart' as globals;
 
 List<String> himmel = [
   "assets/images/Sky(1).png",
@@ -164,8 +165,7 @@ class Tree extends StatelessWidget {
 Future getNames() async {
   bothNames.clear();
   fullMessage.clear();
-  var bestBlock =
-      await http.get(Uri.parse('http://3.71.71.72:8669/blocks/best'));
+  var bestBlock = await http.get(Uri.parse(globals.nodeURL + 'blocks/best'));
   var bestBlockList = json.decode(bestBlock.body);
   int best = (bestBlockList['number']);
   try {
@@ -177,10 +177,8 @@ Future getNames() async {
       ],
       "order": "asc"
     };
-    var sendToNode = await http.post(
-        Uri.parse('http://3.71.71.72:8669/logs/event'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(form));
+    var sendToNode = await http.post(Uri.parse(globals.nodeURL + 'logs/event'),
+        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
     List<dynamic> nodeResponse = json.decode(sendToNode.body);
 

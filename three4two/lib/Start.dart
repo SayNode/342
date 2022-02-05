@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Start.dart';
 import 'package:three4two/widget/fetchOffers.dart';
+import 'dart:convert';
+import 'package:three4two/Utils/globals.dart' as globals;
+import 'package:http/http.dart' as http;
 
 class Screen0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    getTrees();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -17,21 +21,20 @@ class Screen0 extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                
                 Column(
                   children: [
                     Container(
                       padding: EdgeInsets.only(top: 50, bottom: 20),
                       child: Text(
-                        "Welcome to \nTREE FOR TWO", textAlign: TextAlign.center,
-                        style:
-                            TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        "Welcome to \nTREE FOR TWO",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
-                    child: Image.asset("assets/Gifs/Start.gif"),
-                    
-                  ),
+                      child: Image.asset("assets/Gifs/Start.gif"),
+                    ),
                     RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
@@ -54,7 +57,8 @@ class Screen0 extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.only(left: 10, right: 8),
                                 child: Text(
-                                  "Get started", style: TextStyle(color: Colors.white),
+                                  "Get started",
+                                  style: TextStyle(color: Colors.white),
                                 ),
                               ),
                             ),
@@ -122,5 +126,38 @@ class Screen0 extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Future getTrees() async {
+  var bestBlock = await http.get(Uri.parse(globals.nodeURL + 'blocks/best'));
+  var bestBlockList = json.decode(bestBlock.body);
+  int best = (bestBlockList['number']);
+  try {
+    Map form = {
+      "range": {"unit": "block", "from": 0, "to": best},
+      "options": {"offset": 0, "limit": 300},
+      "criteriaSet": [
+        {
+          "address": "0xca4B53CF539e30d61D7111cf784BFFA3587C4FE0",
+          "topic0":
+              "0xeb3a151fbf02ed5c90d14b23ba486256b168f6ab2364c5b47319046b11547836"
+        }
+      ],
+      "order": "asc"
+    };
+    var sendToNode = await http.post(Uri.parse(globals.nodeURL + 'logs/event'),
+        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
+
+    List<dynamic> nodeResponse = json.decode(sendToNode.body);
+
+    for (var i = 0; i < nodeResponse.length; i++) {
+      String treeAddress = nodeResponse[i]['topics'][2];
+      globals.trees.add("0x" + treeAddress.substring(26, treeAddress.length));
+    }
+
+    return;
+  } on Exception catch (e) {
+    return "fail";
   }
 }

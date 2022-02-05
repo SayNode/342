@@ -39,7 +39,8 @@ Future fetchTreeOffers(BuildContext context) async {
             if (success == true) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text("Planting your tree..."),
+                  content: Text(
+                      "Planting your tree... This can take up to 10 seconds."),
                 ),
               );
               await purchase(context);
@@ -59,6 +60,7 @@ Future fetchTreeOffers(BuildContext context) async {
 
 Future purchase(context) async {
   await plantTree(globals.newTreeName);
+  await Future.delayed(Duration(seconds: 10));
   var baum = await getLatestTree();
   globals.recentTx =
       await sendToScript(globals.message, globals.name1, globals.name2, baum);
@@ -70,13 +72,10 @@ Future purchase(context) async {
 }
 
 Future<String> plantTree(treename) async {
-  await Future.delayed(Duration(seconds: 2));
   try {
     Map form = {'treename': treename};
-    var send = await http.post(Uri.parse("http://10.0.2.2:5000/plantTree/"),
+    var send = await http.post(Uri.parse(globals.serverURL + "plantTree/"),
         headers: {'Content-Type': 'application/json'}, body: json.encode(form));
-
-    print(send.body);
 
     final txId = (json.decode(send.body)).substring(8, 74);
 
@@ -96,7 +95,7 @@ Future<String> sendToScript(nachricht, name1, name2, baum) async {
       'tree': baum
     };
     print(form);
-    var send = await http.post(Uri.parse('http://10.0.2.2:5000/'),
+    var send = await http.post(Uri.parse(globals.serverURL),
         headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
     print(send.body);
@@ -110,8 +109,7 @@ Future<String> sendToScript(nachricht, name1, name2, baum) async {
 }
 
 Future<String> getLatestTree() async {
-  var bestBlock =
-      await http.get(Uri.parse('http://3.71.71.72:8669/blocks/best'));
+  var bestBlock = await http.get(Uri.parse(globals.nodeURL + 'blocks/best'));
   var bestBlockList = json.decode(bestBlock.body);
   int best = (bestBlockList['number']);
   try {
@@ -127,10 +125,8 @@ Future<String> getLatestTree() async {
       ],
       "order": "asc"
     };
-    var sendToNode = await http.post(
-        Uri.parse('http://3.71.71.72:8669/logs/event'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(form));
+    var sendToNode = await http.post(Uri.parse(globals.nodeURL + 'logs/event'),
+        headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
     List<dynamic> nodeResponse = json.decode(sendToNode.body);
     String treeAddress = nodeResponse.last['topics'][2];

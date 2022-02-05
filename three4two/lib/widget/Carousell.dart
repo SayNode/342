@@ -23,9 +23,10 @@ class _imageCarousel extends State<imageCarousel> {
             enableInfiniteScroll: false,
           ),
           items: [
-            globals.serverURL + "/tree",
-            globals.serverURL + "/tree",
-            globals.serverURL + "/tree",
+            globals.serverURL + "tree/" + globals.trees[0],
+            globals.serverURL + "tree/" + globals.trees[1],
+            globals.serverURL + "tree/" + globals.trees[2],
+            globals.serverURL + "tree/" + globals.trees[3],
           ].map((i) {
             return Builder(
               builder: (BuildContext context) {
