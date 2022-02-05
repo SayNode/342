@@ -22,14 +22,7 @@ class _imageCarousel extends State<imageCarousel> {
             enlargeCenterPage: true,
             enableInfiniteScroll: false,
           ),
-          items: [
-            globals.serverURL + "tree/" + globals.trees[0],
-            globals.serverURL + "tree/" + globals.trees[1],
-            globals.serverURL + "tree/" + globals.trees[2],
-            globals.serverURL + "tree/" + globals.trees[3],
-            globals.serverURL + "tree/" + globals.trees[4],
-            globals.serverURL + "tree/" + globals.trees[5],
-          ].map((i) {
+          items: treeURL.map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -59,7 +52,8 @@ class _imageCarousel extends State<imageCarousel> {
                           Navigator.push<Widget>(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Tree(),
+                              builder: (context) => Tree(
+                                  treeID: globals.trees[treeURL.indexOf(i)]),
                             ),
                           );
                         }));
@@ -69,3 +63,12 @@ class _imageCarousel extends State<imageCarousel> {
         ));
   }
 }
+
+List treeURL = [
+  globals.serverURL + "tree/" + globals.trees[0],
+  globals.serverURL + "tree/" + globals.trees[1],
+  globals.serverURL + "tree/" + globals.trees[2],
+  globals.serverURL + "tree/" + globals.trees[3],
+  globals.serverURL + "tree/" + globals.trees[4],
+  globals.serverURL + "tree/" + globals.trees[5],
+];

@@ -24,6 +24,12 @@ List<String> bothNames = [];
 List<String> fullMessage = [];
 
 class Tree extends StatelessWidget {
+  final String treeID;
+  Tree({
+    Key? key,
+    required this.treeID,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +39,7 @@ class Tree extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.pink, size: 30),
       ),
       body: FutureBuilder(
-        future: getNames(),
+        future: getNames(treeID),
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -162,7 +168,7 @@ class Tree extends StatelessWidget {
   }
 }
 
-Future getNames() async {
+Future getNames(treeID) async {
   bothNames.clear();
   fullMessage.clear();
   var bestBlock = await http.get(Uri.parse(globals.nodeURL + 'blocks/best'));
@@ -173,7 +179,7 @@ Future getNames() async {
       "range": {"unit": "block", "from": 0, "to": best},
       "options": {"offset": 0, "limit": 100},
       "criteriaSet": [
-        {"address": "0x6f7BeC0AFcfF5d87d1817d6a3291E96CbD156944"}
+        {"address": treeID}
       ],
       "order": "asc"
     };
