@@ -130,6 +130,7 @@ class Screen0 extends StatelessWidget {
 }
 
 Future getTrees() async {
+  globals.trees = [];
   var bestBlock = await http.get(Uri.parse(globals.nodeURL + 'blocks/best'));
   var bestBlockList = json.decode(bestBlock.body);
   int best = (bestBlockList['number']);
@@ -150,14 +151,22 @@ Future getTrees() async {
         headers: {'Content-Type': 'application/json'}, body: json.encode(form));
 
     List<dynamic> nodeResponse = json.decode(sendToNode.body);
-
     for (var i = 0; i < nodeResponse.length; i++) {
       String treeAddress = nodeResponse[i]['topics'][2];
       globals.trees.add("0x" + treeAddress.substring(26, treeAddress.length));
     }
-
+    getTreeNames();
     return;
   } on Exception catch (e) {
     return "fail";
   }
+}
+
+Future getTreeNames() async {
+  print(globals.trees.length);
+  var treeName = await http.post(Uri.parse(globals.nodeURL +
+      'accounts/' +
+      globals.trees[0] +
+      'storage/0x0000000000000000000000000000000000000000000000000000000000000004'));
+  print(treeName.body);
 }
