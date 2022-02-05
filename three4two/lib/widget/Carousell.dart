@@ -10,7 +10,7 @@ class imageCarousel extends StatefulWidget {
   State<imageCarousel> createState() => _imageCarousel();
 }
 
-int idx = 0;
+List<String> treeURL = [];
 
 class _imageCarousel extends State<imageCarousel> {
   @override
@@ -30,7 +30,7 @@ class _imageCarousel extends State<imageCarousel> {
               );
             },
           ),
-          items: treeURL.map((i) {
+          items: generateTreeURL().map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -75,14 +75,13 @@ class _imageCarousel extends State<imageCarousel> {
   }
 }
 
-List treeURL = [
-  globals.serverURL + "tree/" + globals.trees[0],
-  globals.serverURL + "tree/" + globals.trees[1],
-  globals.serverURL + "tree/" + globals.trees[2],
-  globals.serverURL + "tree/" + globals.trees[3],
-  globals.serverURL + "tree/" + globals.trees[4],
-  globals.serverURL + "tree/" + globals.trees[5],
-  globals.serverURL + "tree/" + globals.trees[6],
-  globals.serverURL + "tree/" + globals.trees[7],
-  globals.serverURL + "tree/" + globals.trees[8],
-];
+List<String> generateTreeURL() {
+  treeURL.clear();
+  for (var x = 0; x < globals.trees.length; x++) {
+    treeURL.add(
+      globals.serverURL + "tree/" + globals.trees[x],
+    );
+  }
+
+  return treeURL;
+}

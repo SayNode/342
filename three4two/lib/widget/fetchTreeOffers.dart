@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
 import 'package:three4two/Error.dart';
+import 'package:three4two/widget/getTrees.dart';
 import 'package:three4two/widget/loading.dart';
 import 'package:three4two/widget/paywall_widget.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
@@ -66,6 +67,7 @@ Future purchase(context) async {
       await sendToScript(globals.message, globals.name1, globals.name2, baum);
   writeJson(globals.txId.toString(), globals.recentTx);
   globals.txId++;
+  getTrees();
   Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => Thanks()),
       (Route<dynamic> route) => false);
