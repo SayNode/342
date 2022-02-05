@@ -68,7 +68,12 @@ Future purchase(context) async {
 Future<String> sendToScript(nachricht, name1, name2) async {
   await Future.delayed(Duration(seconds: 2));
   try {
-    Map form = {'nachricht': nachricht, 'name1': name1, 'name2': name2};
+    Map form = {
+      'nachricht': nachricht,
+      'name1': name1,
+      'name2': name2,
+      "tree": globals.trees[globals.carouselIndex]
+    };
     print(form);
     var send = await http.post(Uri.parse(globals.serverURL),
         headers: {'Content-Type': 'application/json'}, body: json.encode(form));

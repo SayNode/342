@@ -10,10 +10,11 @@ class imageCarousel extends StatefulWidget {
   State<imageCarousel> createState() => _imageCarousel();
 }
 
+int idx = 0;
+
 class _imageCarousel extends State<imageCarousel> {
   @override
   Widget build(BuildContext context) {
-    PaintingBinding.instance!.imageCache?.clear();
     return Container(
         height: 400.0,
         child: CarouselSlider(
@@ -21,6 +22,13 @@ class _imageCarousel extends State<imageCarousel> {
             height: 300,
             enlargeCenterPage: true,
             enableInfiniteScroll: false,
+            onPageChanged: (index, reason) {
+              setState(
+                () {
+                  globals.carouselIndex = index; //<-- Page index
+                },
+              );
+            },
           ),
           items: treeURL.map((i) {
             return Builder(

@@ -51,7 +51,6 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Screen0(),
         "/home": (context) => Home(),
-        "/write": (context) => Write(),
         "/search": (context) => OwnTx(),
         "/about": (context) => About(),
         "/thanks": (context) => Thanks(),

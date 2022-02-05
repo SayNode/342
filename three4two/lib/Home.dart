@@ -5,9 +5,10 @@ import 'package:three4two/widget/Carousell.dart';
 import 'package:three4two/Search.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';
-import 'package:share/share.dart';
+import 'package:provider/provider.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:three4two/Utils/globals.dart' as globals;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -78,6 +79,7 @@ class _Home extends State<Home> {
                     ),
                     onPressed: () {
                       setState(() {});
+
                       Navigator.push(
                           context,
                           PageRouteBuilder(

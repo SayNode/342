@@ -6,8 +6,6 @@ import "package:three4two/widget/fetchOffers.dart";
 import 'package:profanity_filter/profanity_filter.dart';
 
 class Write extends StatefulWidget {
-  const Write({Key? key}) : super(key: key);
-
   @override
   State<Write> createState() => _Write();
 }
@@ -56,10 +54,11 @@ class _Write extends State<Write> {
                           ),
                         ),
                         Text(
-                          "Be aware, that your message is stored permanently and can't be removed from the blockchain.",
+                          "Be aware, that your message is stored permanently and can't be removed from the blockchain. \n \n Your message will be written to the tree:  " +
+                              globals.trees[globals.carouselIndex],
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 14,
                             color: Colors.white,
                           ),
                         ),
