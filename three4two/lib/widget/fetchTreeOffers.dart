@@ -68,6 +68,7 @@ Future purchase(context) async {
   writeJson(globals.txId.toString(), globals.recentTx);
   globals.txId++;
   getTrees();
+  getTreeNames();
   Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => Thanks()),
       (Route<dynamic> route) => false);

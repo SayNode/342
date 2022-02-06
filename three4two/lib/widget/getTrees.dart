@@ -44,8 +44,7 @@ Future getTreeNames() async {
         globals.trees[i] +
         '/storage/0x0000000000000000000000000000000000000000000000000000000000000004'));
     var data = json.decode(treeName.body)["value"];
-    print(utf8.decode(HEX.decode(data.substring(2, data.length))));
     globals.treeNames
-        .add(utf8.decode(HEX.decode(data.substring(2, data.length))));
+        .add(utf8.decode(HEX.decode(data.substring(2, data.length - 2))));
   }
 }
