@@ -12,9 +12,13 @@ class Write extends StatefulWidget {
 
 class _Write extends State<Write> {
   TextEditingController _controller = TextEditingController();
-  TextEditingController name1Controller = TextEditingController();
-  TextEditingController name2Controller = TextEditingController();
+  TextEditingController _name1Controller = TextEditingController();
+  TextEditingController _name2Controller = TextEditingController();
   bool myNewButton = false;
+  bool _validateMessage = false;
+  bool _validateName1 = false;
+  bool _validateName2 = false;
+
   String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
@@ -72,7 +76,7 @@ class _Write extends State<Write> {
                       child: Container(
                         padding: const EdgeInsets.only(left: 20, right: 10),
                         child: TextField(
-                          controller: name1Controller,
+                          controller: _name1Controller,
                           onChanged: (value) {
                             setState(
                               () {
@@ -110,7 +114,7 @@ class _Write extends State<Write> {
                       child: Container(
                         padding: const EdgeInsets.only(left: 10, right: 20),
                         child: TextField(
-                          controller: name2Controller,
+                          controller: _name2Controller,
                           onChanged: (value) {
                             setState(
                               () {
@@ -198,9 +202,30 @@ class _Write extends State<Write> {
                                   ),
                                 );
                               } else {
-                                FocusScope.of(context)
-                                    .requestFocus(FocusNode());
-                                await fetchOffers(context);
+                                _controller.text.isEmpty
+                                    ? _validateMessage = false
+                                    : _validateMessage = true;
+                                _name1Controller.text.isEmpty
+                                    ? _validateName1 = false
+                                    : _validateName1 = true;
+                                _name2Controller.text.isEmpty
+                                    ? _validateName2 = false
+                                    : _validateName2 = true;
+
+                                if (_validateMessage &&
+                                    _validateName1 &&
+                                    _validateName2) {
+                                  FocusScope.of(context)
+                                      .requestFocus(FocusNode());
+                                  await fetchOffers(context);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text("Please fill out all fields"),
+                                    ),
+                                  );
+                                }
                               }
                             },
                             child: Row(children: [

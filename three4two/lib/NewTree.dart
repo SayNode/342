@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
-import "package:three4two/widget/fetchTreeOffers.dart";
+import "package:three4two/widget/fetchOffers.dart";
+import 'package:profanity_filter/profanity_filter.dart';
+import 'package:three4two/widget/fetchTreeOffers.dart';
 
 class newTree extends StatefulWidget {
-  const newTree({Key? key}) : super(key: key);
-
   @override
   State<newTree> createState() => _newTree();
 }
 
 class _newTree extends State<newTree> {
   TextEditingController _controller = TextEditingController();
-  TextEditingController name1Controller = TextEditingController();
-  TextEditingController name2Controller = TextEditingController();
+  TextEditingController _name1Controller = TextEditingController();
+  TextEditingController _name2Controller = TextEditingController();
   TextEditingController treeNameController = TextEditingController();
 
   bool myNewButton = false;
-  String myText = "plant";
+  bool _validateMessage = false;
+  bool _validateName1 = false;
+  bool _validateName2 = false;
+  bool _validateTree = false;
+
+  String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
+  List<String> badWordList = ["Hitler", "Nazi", "Sieg Heil"];
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +92,7 @@ class _newTree extends State<newTree> {
                       hintText: "Name your tree",
                       helperStyle: TextStyle(color: Colors.white),
                       counterText:
-                          '${(30 - globals.message.length).toString()} characters left',
+                          '${(30 - globals.newTreeName.length).toString()} characters left',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:
@@ -112,7 +118,7 @@ class _newTree extends State<newTree> {
                     child: Column(
                       children: [
                         Text(
-                          "Write your message",
+                          " Write your message",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -123,7 +129,7 @@ class _newTree extends State<newTree> {
                           "Be aware, that your message is stored permanently and can't be removed from the blockchain.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 14,
                             color: Colors.white,
                           ),
                         ),
@@ -137,7 +143,7 @@ class _newTree extends State<newTree> {
                       child: Container(
                         padding: const EdgeInsets.only(left: 20, right: 10),
                         child: TextField(
-                          controller: name1Controller,
+                          controller: _name1Controller,
                           onChanged: (value) {
                             setState(
                               () {
@@ -175,7 +181,7 @@ class _newTree extends State<newTree> {
                       child: Container(
                         padding: const EdgeInsets.only(left: 10, right: 20),
                         child: TextField(
-                          controller: name2Controller,
+                          controller: _name2Controller,
                           onChanged: (value) {
                             setState(
                               () {
@@ -251,9 +257,47 @@ class _newTree extends State<newTree> {
                       children: [
                         ElevatedButton(
                             onPressed: () async {
-                              FocusScope.of(context).requestFocus(FocusNode());
+                              final filter = ProfanityFilter.filterAdditionally(
+                                  badWordList);
+                              if (filter.hasProfanity(globals.message) ||
+                                  filter.hasProfanity(globals.name1) ||
+                                  filter.hasProfanity(globals.name2)) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content:
+                                        Text("Please only write nice things"),
+                                  ),
+                                );
+                              } else {
+                                _controller.text.isEmpty
+                                    ? _validateMessage = false
+                                    : _validateMessage = true;
+                                _name1Controller.text.isEmpty
+                                    ? _validateName1 = false
+                                    : _validateName1 = true;
+                                _name2Controller.text.isEmpty
+                                    ? _validateName2 = false
+                                    : _validateName2 = true;
+                                treeNameController.text.isEmpty
+                                    ? _validateTree = false
+                                    : _validateTree = true;
 
-                              await fetchTreeOffers(context);
+                                if (_validateMessage &&
+                                    _validateName1 &&
+                                    _validateName2 &&
+                                    _validateTree) {
+                                  FocusScope.of(context)
+                                      .requestFocus(FocusNode());
+                                  await fetchTreeOffers(context);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text("Please fill out all fields"),
+                                    ),
+                                  );
+                                }
+                              }
                             },
                             child: Row(children: [
                               Text(

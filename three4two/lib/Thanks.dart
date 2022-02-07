@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:share/share.dart';
+import 'package:three4two/widget/getTrees.dart';
+import 'package:three4two/widget/loading.dart';
 
 class Thanks extends StatefulWidget {
   const Thanks({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class Thanks extends StatefulWidget {
 class _Thanks extends State<Thanks> {
   @override
   Widget build(BuildContext context) {
+    getTrees();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -63,11 +67,12 @@ class _Thanks extends State<Thanks> {
                       size: 24.0,
                     ),
                     onPressed: () {
-                      Share.share("Download Tree42: " +
-                          "www.saynode.ch"
+                      Share.share(
+                          "Play Store: https://play.google.com/store/apps/details?id=ch.saynode.three42" +
                               "\n" +
-                          "My Transaction ID: " +
-                          globals.recentTx);
+                              "App Store: https://apps.apple.com/us/app/tree-for-two/id1606557166" +
+                              "My Transaction ID: " +
+                              globals.recentTx);
                     },
                   ),
                   ElevatedButton(
@@ -80,7 +85,7 @@ class _Thanks extends State<Thanks> {
                             return Home();
                           },
                         ),
-                      ).then((value) => setState(() {}));
+                      );
                     },
                   ),
                 ],

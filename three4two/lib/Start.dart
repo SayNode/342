@@ -12,7 +12,7 @@ class Screen0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getTrees();
-    getTreeNames();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

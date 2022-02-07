@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
+import 'package:three4two/widget/getTrees.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
