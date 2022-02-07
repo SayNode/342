@@ -121,7 +121,7 @@ Future<String> getLatestTree() async {
       "options": {"offset": 0, "limit": 300},
       "criteriaSet": [
         {
-          "address": "0xca4B53CF539e30d61D7111cf784BFFA3587C4FE0",
+          "address": globals.treeFactoryAddress,
           "topic0":
               "0xeb3a151fbf02ed5c90d14b23ba486256b168f6ab2364c5b47319046b11547836"
         }

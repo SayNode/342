@@ -47,9 +47,7 @@ class _imageCarousel extends State<imageCarousel> {
                               flex: 10,
                               child: Padding(
                                 padding: const EdgeInsets.all(15.0),
-                                child: Image.network(
-                                  i,
-                                ),
+                                child: Image.network(i),
                               ),
                             ),
                             Expanded(
@@ -79,7 +77,10 @@ List<String> generateTreeURL() {
   treeURL.clear();
   for (var x = 0; x < globals.trees.length; x++) {
     treeURL.add(
-      globals.serverURL + "tree/" + globals.trees[x],
+      globals.serverURL +
+          "tree/" +
+          globals.trees[x] +
+          "?v=${DateTime.now().millisecondsSinceEpoch}",
     );
   }
 
