@@ -5,11 +5,8 @@ import 'package:three4two/widget/Carousell.dart';
 import 'package:three4two/Search.dart';
 import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';
-import 'package:provider/provider.dart';
 import 'package:launch_review/launch_review.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:three4two/Utils/globals.dart' as globals;
-import 'package:three4two/widget/getTrees.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -49,7 +46,7 @@ class _Home extends State<Home> {
                             minimumSize: Size.fromHeight(40),
                             primary: Colors.red.shade50),
                         child: Text(
-                          'Plant your own tree',
+                          AppLocalizations.of(context)!.plantTree,
                           style: TextStyle(
                               color: Colors.pink,
                               fontSize: 20,

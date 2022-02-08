@@ -9,6 +9,7 @@ import 'Utils/globals.dart' as globals;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import "package:hex/hex.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OwnTx extends StatefulWidget {
   const OwnTx({Key? key}) : super(key: key);
@@ -26,7 +27,8 @@ class _OwnTx extends State<OwnTx> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Your messages'),
+          title: Text(AppLocalizations.of(context)!.ownMessages),
+          elevation: 0,
         ),
         body: FutureBuilder(
           future: getTxId(),
@@ -66,7 +68,9 @@ class _OwnTx extends State<OwnTx> {
                               ),
                               Flexible(
                                 child: Text(
-                                  "Transaction ID:" + "\n" + txID[index],
+                                  AppLocalizations.of(context)!.transactionID +
+                                      "\n" +
+                                      txID[index],
                                   style: TextStyle(color: Colors.grey.shade600),
                                 ),
                               ),

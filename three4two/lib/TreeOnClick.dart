@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TreeOnClick extends StatelessWidget {
   final String names;
@@ -62,7 +63,7 @@ class TreeOnClick extends StatelessWidget {
                     minimumSize: const Size.fromHeight(50),
                     primary: Colors.pink),
                 child: Text(
-                  'go back',
+                  AppLocalizations.of(context)!.back,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,

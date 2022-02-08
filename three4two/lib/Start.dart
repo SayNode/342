@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
-import 'package:three4two/Start.dart';
-import 'package:three4two/widget/fetchOffers.dart';
-import 'dart:convert';
-import 'package:three4two/Utils/globals.dart' as globals;
-import 'package:http/http.dart' as http;
-import "package:hex/hex.dart";
-import 'package:three4two/widget/getTrees.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Screen0 extends StatelessWidget {
   @override
@@ -27,7 +21,7 @@ class Screen0 extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(top: 50, bottom: 20),
                       child: Text(
-                        "Welcome to \nTREE FOR TWO",
+                        AppLocalizations.of(context)!.welcome_one,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
@@ -41,8 +35,7 @@ class Screen0 extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text:
-                                "Confess your love to your loved ones and store your words forever on the blockchain! Let the tree of love grow, for each message it will get another leaf. By storing your messages on the blockchain they will be stored forever. That's even better than etching your name in a real tree or writing your name on a lock. To write a message, click on  ",
+                            text: AppLocalizations.of(context)!.welcome_two,
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.grey.shade600,
@@ -58,14 +51,14 @@ class Screen0 extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.only(left: 10, right: 8),
                                 child: Text(
-                                  "Get started",
+                                  AppLocalizations.of(context)!.getStarted,
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
                             ),
                           ),
                           TextSpan(
-                            text: "  and on the next page click on the ",
+                            text: AppLocalizations.of(context)!.welcome_three,
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.grey.shade600,
@@ -107,7 +100,7 @@ class Screen0 extends StatelessWidget {
                         minimumSize: const Size.fromHeight(50),
                         primary: Colors.pink),
                     child: Text(
-                      'Get started',
+                      AppLocalizations.of(context)!.getStarted,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

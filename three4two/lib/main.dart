@@ -1,17 +1,14 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:three4two/Start.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/Thanks.dart';
-import 'package:three4two/Write.dart';
 import 'package:three4two/OwnTransactions.dart';
-import 'package:three4two/Tree0.dart';
 import 'package:flutter/material.dart';
 import 'package:three4two/about.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'dart:io' show Platform;
-
 import 'package:three4two/api/purchase_api.dart';
+import 'package:three4two/l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +42,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      supportedLocales: L10n.all,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       debugShowCheckedModeBanner: false,
       title: '342',
       initialRoute: "/",

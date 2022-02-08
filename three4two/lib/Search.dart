@@ -1,11 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import "package:hex/hex.dart";
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:three4two/TxOnClick.dart';
 import 'Utils/globals.dart' as globals;
 import 'dart:convert';
-import 'package:three4two/TreeOnClick.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -53,7 +52,7 @@ class _Search extends State<Search> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           child: Text(
-                            "Find your message",
+                            AppLocalizations.of(context)!.find,
                             style: TextStyle(fontSize: 30, color: Colors.white),
                           ),
                         ),
@@ -71,21 +70,22 @@ class _Search extends State<Search> {
                         );
                       },
                       decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(
-                              color: Colors.pink,
-                            ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.pink,
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(
-                              color: Colors.pink,
-                            ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.pink,
                           ),
-                          hintText: "Your transaction ID (Starts with 0x...)"),
+                        ),
+                        hintText: AppLocalizations.of(context)!.findHelperText,
+                      ),
                     ),
                   ),
                   ListTile(
@@ -98,7 +98,7 @@ class _Search extends State<Search> {
                                 minimumSize: Size.fromHeight(40),
                                 primary: Colors.pink),
                             child: Text(
-                              'Search ',
+                              AppLocalizations.of(context)!.search,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
@@ -131,7 +131,7 @@ class _Search extends State<Search> {
                                   minimumSize: Size.fromHeight(40),
                                   primary: Colors.pink),
                               child: Text(
-                                'back',
+                                AppLocalizations.of(context)!.back,
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,

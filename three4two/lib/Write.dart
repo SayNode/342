@@ -4,6 +4,7 @@ import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import "package:three4two/widget/fetchOffers.dart";
 import 'package:profanity_filter/profanity_filter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Write extends StatefulWidget {
   @override
@@ -19,7 +20,6 @@ class _Write extends State<Write> {
   bool _validateName1 = false;
   bool _validateName2 = false;
 
-  String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
   List<String> badWordList = ["Hitler", "Nazi", "Sieg Heil"];
@@ -35,13 +35,13 @@ class _Write extends State<Write> {
       body: Center(
         child: Container(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
@@ -50,15 +50,18 @@ class _Write extends State<Write> {
                     child: Column(
                       children: [
                         Text(
-                          " Write your message",
+                          AppLocalizations.of(context)!.write,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
+                        SizedBox(height: 10),
                         Text(
-                          "Be aware, that your message is stored permanently and can't be removed from the blockchain. \n \n Your message will be written to the tree:  " +
+                          AppLocalizations.of(context)!.writeText +
+                              AppLocalizations.of(context)!.writeTextID +
                               globals.treeNames[globals.carouselIndex],
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -88,21 +91,23 @@ class _Write extends State<Write> {
                             LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              hintText: "your name"),
+                            ),
+                            hintText: AppLocalizations.of(context)!.yourName,
+                            hintStyle: TextStyle(fontSize: 14),
+                          ),
                         ),
                       ),
                     ),
@@ -126,21 +131,23 @@ class _Write extends State<Write> {
                             LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              hintText: "your loved one"),
+                            ),
+                            hintText: AppLocalizations.of(context)!.name2,
+                            hintStyle: TextStyle(fontSize: 14),
+                          ),
                         ),
                       ),
                     ),
@@ -162,10 +169,11 @@ class _Write extends State<Write> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "your love message",
+                      hintText: AppLocalizations.of(context)!.loveMessage,
+                      hintStyle: TextStyle(fontSize: 14),
                       helperStyle: TextStyle(color: Colors.white),
-                      counterText:
-                          '${(140 - globals.message.length).toString()} characters left',
+                      counterText: (140 - globals.message.length).toString() +
+                          AppLocalizations.of(context)!.charactersLeft,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:
@@ -197,8 +205,8 @@ class _Write extends State<Write> {
                                   filter.hasProfanity(globals.name2)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content:
-                                        Text("Please only write nice things"),
+                                    content: Text(AppLocalizations.of(context)!
+                                        .niceThings),
                                   ),
                                 );
                               } else {
@@ -221,8 +229,9 @@ class _Write extends State<Write> {
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content:
-                                          Text("Please fill out all fields"),
+                                      content: Text(
+                                          AppLocalizations.of(context)!
+                                              .fillOut),
                                     ),
                                   );
                                 }
@@ -230,7 +239,7 @@ class _Write extends State<Write> {
                             },
                             child: Row(children: [
                               Text(
-                                myText,
+                                AppLocalizations.of(context)!.send,
                               ),
                               const Padding(
                                 padding: EdgeInsets.only(left: 8.0),

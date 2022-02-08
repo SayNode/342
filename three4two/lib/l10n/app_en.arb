@@ -1,0 +1,207 @@
+{
+    "language" : "English",
+    "@language": {
+        "description": "The current language"
+    },
+
+    "welcome_one" : "Welcome to \n TREE FOR TWO",
+    "@welcome_one": {
+        "description": "Welcometext start Page"
+    },
+
+    "welcome_two" : "Confess your love to your loved ones and store your words forever on the blockchain! Let the tree of love grow, for each message it will get another leaf. By storing your messages on the blockchain they will be stored forever. That's even better than etching your name in a real tree or writing your name on a lock. To write a message, click on  ",
+    "@welcome_two": {
+        "description": "Welcometext start Page 2"
+    },
+
+    "welcome_three" : "  and on the next page click on the ",
+    "@welcome_three": {
+        "description": "Welcometext start Page 3"
+    },
+    
+    "welcome_four" : "icon",
+    "@welcome_four": {
+        "description": "icon"
+    },
+
+    "getStarted" : "Get started",
+    "@getStarted": {
+        "description": "Get Started Button"
+    },
+
+    "plantTree" : "Plant your own tree",
+    "@plantTree": {
+        "description": "Plant Tree Button Button"
+    },
+
+    "about" : "About",
+    "@about": {
+        "description": "About Drawer"
+    },
+
+    "presented" : "presented by SayNode",
+    "@presented": {
+        "description": "presented by in Drawer"
+    },
+
+    "aboutText" : "TREE FOR TWO is developed by SayNode. We want to do cool stuff with blockchains.",
+    "@aboutText": {
+        "description": "About Page description"
+    },
+
+
+    "search" : "search",
+    "@search": {
+        "description": "search Button"
+    },
+
+    "link" : "Vist us",
+    "@link": {
+        "description": "Visit us Button"
+    },
+
+    "back" : "back",
+    "@back": {
+        "description": "back Button"
+    },
+
+    "send" : "send",
+    "@send": {
+        "description": "send Button"
+    },
+
+    "plant" : "plant",
+    "@send": {
+        "description": "plant Button"
+    },
+
+    "faq_one" : "Why do I have to pay something?",
+    "@faq_one": {
+        "description": "FAQ Question 1"
+    },
+
+    "faq_oneA" : "Certain interactions with a blockchain costs money. To store data forever on a blockchain, like storing a message, you have to pay a fee to the nodes running the network. We take care of these fees in order to make the process as easy as possible for you.",
+    "@faq_oneA": {
+        "description": "FAQ Answer 1"
+    },
+
+    "faq_two" : "Why are the characters of my message limited?",
+    "@faq_One": {
+        "description": "FAQ Question 2"
+    },
+
+    "faq_twoA" : "The more data you want to submit to the blockchain the more gas fees you have to pay. In order to keep the price affordable for anyone we had to limit the character input of the messages.",
+    "@faq_twoA": {
+        "description": "FAQ Answer 2"
+    },
+
+    "faq_three" : "Can I delete my message?",
+    "@faq_three": {
+        "description": "FAQ Question 3"
+    },
+
+    "faq_threeA" : "Once your message is send to the blockchain, it can't be deleted. This is in the very nature of blockchains, which makes them so secure. Your declaration of love will be stored forever.",
+    "@faq_threeA": {
+        "description": "FAQ Answer 3"
+    },
+
+    "faq_four" : "Why did you choose VeChain as your blockchain?",
+    "@faq_four": {
+        "description": "FAQ Question 4"
+    },
+
+    "faq_fourA" : "Why not? VeChain is a very scalable L1 solution with low fees and easily accessible developer toolkits. Because of the fee delegation feature of VeChain we can build blockchain applications with minimal technical user interactions.",
+    "@faq_fourA": {
+        "description": "FAQ Answer 4"
+    },
+
+    "find" : "Find your message",
+    "@find": {
+        "description": "Find your Message header"
+    },
+
+    "findHelperText" : "Your transaction ID (Starts with 0x...) ",
+    "@findHelperText": {
+        "description": "Find your message header"
+    },
+
+    "transactionID" : "Transaction ID ",
+    "@transactionID": {
+        "description": "transaction ID"
+    },
+
+    "ownMessages" : "Your messages ",
+    "@ownMessages": {
+        "description": "Your messages Header"
+    },
+
+    "message" : "Message: ",
+    "@message": {
+        "description": "message"
+    },
+
+    "write" : "Write your message: ",
+    "@write": {
+        "description": "Write Header"
+    },
+
+    "writeText" : "Be aware, that your message is stored permanently and can't be removed from the blockchain.",
+    "@writeText": {
+        "description": "Write description"
+    },
+
+    "writeTextID" : "\n \n Your message will be written to the tree:  ",
+    "@writeTextID": {
+        "description": "Write description"
+    },
+
+    "yourName" : "Your name",
+    "@yourName": {
+        "description": "TextFormField Helper Name"
+    },
+
+    "name2" : "your loved one",
+    "@name2": {
+        "description": "TextFormField Helper name 2"
+    },
+
+    "loveMessage" : "your love message",
+    "@loveMessage": {
+        "description": "TextFormField Helper message"
+    },
+
+    "charactersLeft" : " characters left",
+    "@charactersLeft": {
+        "description": "TextFormField Helper character"
+    },
+
+    "fillOut" : "Please fill out all fields",
+    "@fillOutallFields": {
+        "description": "Empty checker"
+    },
+
+    "niceThings" : "Please only write nice things",
+    "@niceThings": {
+        "description": "profanity filter bad word"
+    },
+
+    "plantHeader" : "Plant your tree",
+    "@PlantHeader": {
+        "description": "Plant Header"
+    },
+
+    "plantText" : "Be aware that your tree is visible for everyone",
+    "@PlantText": {
+        "description": "Plant description"
+    },
+
+    "treeName" : "Name your tree",
+    "@treeName": {
+        "description": "Tree hint text"
+    }
+
+
+
+    
+
+}

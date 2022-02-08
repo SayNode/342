@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FAQ extends StatelessWidget {
   @override
@@ -43,52 +44,52 @@ class FAQ extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Why do I have to pay something?",
+                      AppLocalizations.of(context)!.faq_one,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "Certain interactions with a blockchain costs money. To store data forever on a blockchain, like storing a message, you have to pay a fee to the nodes running the network. We take care of these fees in order to make the process as easy as possible for you.",
+                      AppLocalizations.of(context)!.faq_oneA,
                       style:
                           TextStyle(fontSize: 18, color: Colors.grey.shade600),
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Why are the characters of my message limited?",
+                      AppLocalizations.of(context)!.faq_two,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "The mire data you want to submit to the blockchain the more gas fees you have to pay. In order to keep the price affordable for anyone we had to limit the character input of the messages.",
+                      AppLocalizations.of(context)!.faq_twoA,
                       style:
                           TextStyle(fontSize: 18, color: Colors.grey.shade600),
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Can I delete my message?",
+                      AppLocalizations.of(context)!.faq_three,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "Once your message is send to the blockchain, it can't be deleted. This is in the very nature of blockchains, which makes them so secure. Your declaration of love will be stored forever.",
+                      AppLocalizations.of(context)!.faq_threeA,
                       style:
                           TextStyle(fontSize: 18, color: Colors.grey.shade600),
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Why did you choose VeChain as your blockchain?",
+                      AppLocalizations.of(context)!.faq_four,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "Why not? VeChain is a very scalable L1 solution with low fees and easily accessible developer toolkits. Because of the fee delegation feature of VeChain we can build blockchain applications with minimal technical user interactions.",
+                      AppLocalizations.of(context)!.faq_fourA,
                       style:
                           TextStyle(fontSize: 18, color: Colors.grey.shade600),
                       textAlign: TextAlign.left,
@@ -102,7 +103,7 @@ class FAQ extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40), primary: Colors.pink),
                     child: Text(
-                      'back',
+                      AppLocalizations.of(context)!.back,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

@@ -32,7 +32,7 @@ dependencies:
   http: any
   provider: ^6.0.2
   carousel_slider: ^4.0.0
-  google_fonts: ^2.2.0
+  google_fonts: ^2.3.1
   share: ^2.0.4
   purchases_flutter: ^3.0.0
   flutter_spinkit: ^5.1.0
@@ -43,6 +43,11 @@ dependencies:
   cached_network_image: ^3.2.0
   launch_review: ^3.0.1
   profanity_filter: ^2.0.0
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0 
+  cupertino_icons: ^1.0.4
+
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +71,7 @@ flutter_icons:
 
 # The following section is specific to Flutter.
 flutter:
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
