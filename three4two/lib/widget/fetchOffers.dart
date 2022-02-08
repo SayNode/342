@@ -9,6 +9,7 @@ import 'package:three4two/Utils/store.dart';
 import 'package:three4two/api/purchase_api.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -60,6 +61,7 @@ Future purchase(context) async {
       await sendToScript(globals.message, globals.name1, globals.name2);
   writeJson(globals.txId.toString(), globals.recentTx);
   globals.txId++;
+  playLocal();
   Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => Thanks()),
       (Route<dynamic> route) => false);
@@ -86,4 +88,9 @@ Future<String> sendToScript(nachricht, name1, name2) async {
   } on Exception catch (e) {
     return e.toString() + "oops";
   }
+}
+
+playLocal() async {
+  final player = AudioCache();
+  player.play('sounds/write1.mp3');
 }

@@ -11,6 +11,7 @@ import 'package:three4two/api/purchase_api.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import "package:hex/hex.dart";
+import 'package:audioplayers/audioplayers.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -19,7 +20,6 @@ Future fetchTreeOffers(BuildContext context) async {
   Offerings offerings = await Purchases.getOfferings();
   var packages;
   packages = offerings.getOffering("tree")?.availablePackages;
-
   bool success = false;
   showModalBottomSheet<void>(
     context: context,
@@ -61,6 +61,7 @@ Future fetchTreeOffers(BuildContext context) async {
 
 Future purchase(context) async {
   await plantTree(globals.newTreeName);
+  playLocal();
   await Future.delayed(Duration(seconds: 10));
   var baum = await getLatestTree();
   globals.recentTx =
@@ -140,4 +141,9 @@ Future<String> getLatestTree() async {
   } on Exception catch (e) {
     return "fail";
   }
+}
+
+playLocal() async {
+  final player = AudioCache();
+  player.play('sounds/roots3.mp3');
 }
