@@ -19,12 +19,25 @@ class Screen0 extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 50, bottom: 20),
+                      padding: EdgeInsets.only(
+                        top: 20,
+                      ),
                       child: Text(
                         AppLocalizations.of(context)!.welcome_one,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10, bottom: 20),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.pink, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: Image.asset(
+                        "assets/images/logo342.png",
+                        height: MediaQuery.of(context).size.width / 5,
                       ),
                     ),
                     Container(
