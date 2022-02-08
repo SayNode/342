@@ -11,8 +11,6 @@ import 'package:three4two/widget/getTrees.dart';
 class Screen0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    getTrees();
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

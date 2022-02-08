@@ -29,7 +29,7 @@ Future getTrees() async {
       String treeAddress = nodeResponse[i]['topics'][2];
       globals.trees.add("0x" + treeAddress.substring(26, treeAddress.length));
     }
-    getTreeNames();
+    await getTreeNames();
     return;
   } on Exception catch (e) {
     return "fail";

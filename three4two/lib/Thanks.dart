@@ -16,7 +16,6 @@ class Thanks extends StatefulWidget {
 class _Thanks extends State<Thanks> {
   @override
   Widget build(BuildContext context) {
-    getTrees();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
