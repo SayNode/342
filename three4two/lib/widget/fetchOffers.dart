@@ -9,6 +9,7 @@ import 'package:three4two/Utils/store.dart';
 import 'package:three4two/api/purchase_api.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -24,8 +25,8 @@ Future fetchOffers(BuildContext context) async {
       return Container(
         child: PaywallWidget(
           packages: packages,
-          title: "Buy Message",
-          description: "Write your love messgage to the blockchain",
+          title: AppLocalizations.of(context)!.buyMessage,
+          description: AppLocalizations.of(context)!.buyMessageText,
           onClickedPackage: (package) async {
             Navigator.push(
                 context,
@@ -37,7 +38,8 @@ Future fetchOffers(BuildContext context) async {
             if (success == true) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text("Writing your message to the blockchain"),
+                  content:
+                      Text(AppLocalizations.of(context)!.writeToBlockchain),
                 ),
               );
               await purchase(context);

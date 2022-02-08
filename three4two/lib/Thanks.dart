@@ -5,6 +5,7 @@ import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:share/share.dart';
 import 'package:three4two/widget/getTrees.dart';
 import 'package:three4two/widget/loading.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Thanks extends StatefulWidget {
   const Thanks({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class _Thanks extends State<Thanks> {
                           border: Border.all(color: Colors.white, width: 5),
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Text(
-                        "Thank you",
+                        AppLocalizations.of(context)!.thanks,
                         style: TextStyle(fontSize: 30, color: Colors.white),
                       ),
                     ),
@@ -53,7 +54,8 @@ class _Thanks extends State<Thanks> {
               Container(
                 padding: EdgeInsets.all(30),
                 child: SelectableText(
-                  "Your Transaction ID: " + globals.recentTx,
+                  AppLocalizations.of(context)!.transactionID +
+                      globals.recentTx,
                   style: TextStyle(color: Colors.grey.shade600, fontSize: 20),
                 ),
               ),

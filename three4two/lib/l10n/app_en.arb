@@ -198,7 +198,45 @@
     "treeName" : "Name your tree",
     "@treeName": {
         "description": "Tree hint text"
+    },
+
+    "buyMessage" : "Buy Message",
+    "@buyMessage": {
+        "description": "Buy Card Buy Message"
+    },
+
+    "buyMessageText" : "Write your love messgage to the blockchain",
+    "@buyMessageText": {
+        "description": "Buy Card Buy Message Text"
+    },
+
+    "writeToBlockchain" : "Writing your love messgage to the blockchain...",
+    "@writeToBlockchain": {
+        "description": "Buy Card Buy Message Text"
+    },
+
+    "buyTree" : "Plant your tree",
+    "@buyTree": {
+        "description": "Buy Card Buy Tree"
+    },
+
+    "buyTreeText" : "Plant your own tree to the blockchain",
+    "@buyTreeText": {
+        "description": "Buy Card Buy Tree Text"
+    },
+
+    "writeTreeToBlockchain" : "Planting your tree... This can take up to 10 seconds.",
+    "@writeTreeToBlockchain": {
+        "description": "Snackbar write Tree to Blockchain"
+    },
+
+    "thanks" : "Thank you",
+    "@thanks": {
+        "description": "Thank you"
     }
+
+
+
 
 
 
