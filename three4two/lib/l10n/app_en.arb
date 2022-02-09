@@ -4,7 +4,7 @@
         "description": "The current language"
     },
 
-    "welcome_one" : "Welcome to \n TREE FOR TWO",
+    "welcome_one" : "Welcome to",
     "@welcome_one": {
         "description": "Welcometext start Page"
     },
