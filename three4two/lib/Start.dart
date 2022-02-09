@@ -5,6 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Screen0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    getTrees();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

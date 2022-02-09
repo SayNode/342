@@ -43,10 +43,14 @@ dependencies:
   cached_network_image: ^3.2.0
   launch_review: ^3.0.1
   profanity_filter: ^2.0.0
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
   cupertino_icons: ^1.0.4
+
+  audioplayers: ^0.20.1
+
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +85,7 @@ flutter:
     - assets/images/
     - assets/UI/
     - assets/Gifs/
+    - assets/sounds/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
