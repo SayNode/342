@@ -107,7 +107,6 @@ class _imageCarousel extends State<imageCarousel> {
 
 Future<List<String>> generateTreeURL() async {
   await getTrees();
-  Future.delayed(Duration(seconds: 10));
   treeURL.clear();
   for (var x = 0; x < globals.trees.length; x++) {
     treeURL.add(
