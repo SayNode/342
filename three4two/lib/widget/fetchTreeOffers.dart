@@ -11,7 +11,11 @@ import 'package:three4two/api/purchase_api.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import "package:hex/hex.dart";
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:audioplayers/audioplayers.dart';
+
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -27,8 +31,8 @@ Future fetchTreeOffers(BuildContext context) async {
       return Container(
         child: PaywallWidget(
           packages: packages,
-          title: "Plant a tree",
-          description: "Plant your own tree on the blockchain",
+          title: AppLocalizations.of(context)!.buyTree,
+          description: AppLocalizations.of(context)!.buyTreeText,
           onClickedPackage: (package) async {
             Navigator.push(
                 context,
@@ -41,7 +45,8 @@ Future fetchTreeOffers(BuildContext context) async {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                      "Planting your tree... This can take up to 10 seconds."),
+                    AppLocalizations.of(context)!.writeTreeToBlockchain,
+                  ),
                 ),
               );
               await purchase(context);
@@ -122,7 +127,7 @@ Future<String> getLatestTree() async {
       "options": {"offset": 0, "limit": 300},
       "criteriaSet": [
         {
-          "address": "0xca4B53CF539e30d61D7111cf784BFFA3587C4FE0",
+          "address": globals.treeFactoryAddress,
           "topic0":
               "0xeb3a151fbf02ed5c90d14b23ba486256b168f6ab2364c5b47319046b11547836"
         }

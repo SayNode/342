@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TxOnClick extends StatelessWidget {
   final String names;
@@ -55,7 +56,7 @@ class TxOnClick extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(30),
             child: Text(
-              "Message: " + message,
+              AppLocalizations.of(context)!.message + message,
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
               textAlign: TextAlign.center,
             ),
@@ -63,7 +64,7 @@ class TxOnClick extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(30),
             child: SelectableText(
-              "Transaction ID: " + txID,
+              AppLocalizations.of(context)!.transactionID + txID,
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
               textAlign: TextAlign.center,
             ),
@@ -75,7 +76,7 @@ class TxOnClick extends StatelessWidget {
                     minimumSize: const Size.fromHeight(50),
                     primary: Colors.pink),
                 child: Text(
-                  'go back',
+                  AppLocalizations.of(context)!.back,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,

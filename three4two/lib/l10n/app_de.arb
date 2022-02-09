@@ -1,0 +1,56 @@
+{
+    "language" : "Deutsch",
+    "welcome_one" : " Willkommen bei",
+    "welcome_two" : "Gestehe deine Liebe und speichere deine Worte für immer in der Blockchain! Lass den Baum der Liebe wachsen, mit jeder Nachricht bekommt er ein neues Blatt. Wenn du deine Nachrichten in eine Blockchain schreibst, wird sie für immer gespeichert. Das ist sogar noch besser, als deinen Namen in einen echten Baum zu ritzen oder ihn auf ein Schloss zu schreiben. Um eine Nachricht zu schreiben, klicke auf",
+    "welcome_three" : " und klicke auf der nächsten Seite auf das ",
+    "welcome_four" : "Icon",
+    "getStarted" : "Start",
+    "plantTree" : "Pflanze deinen Baum",
+    "about" : "Über uns",
+    "presented" : "präsentiert von SayNode",
+    "aboutText" : "TREE FOR TWO wird von Saynode entwickelt. Wir wollen coole Sachen mit Blockchains machen.",
+
+    "search" : "suchen",
+    "link" : "Besuche uns ",
+    "back" : "zurück",
+    "find" : "Suche",
+    "send" : "senden",
+    "plant" : "pflanzen",
+
+    "faq_one" : "Warum muss ich bezahlen um eine Nachricht zu senden?",
+    "faq_oneA" : "Bestimmte Interaktionen mit einer Blockchain kosten Geld. Um Daten für immer in einer Blockchain zu speichern, wie das Speichern einer Nachricht, must du eine Gebühr an die Nodes zahlen, die das Netzwerk betreiben. Wir übernehmen diese Gebühren, um den Prozess für Sie so einfach wie möglich zu gestalten.",
+    "faq_two": "Warum ist die Länge meiner Nachricht limitert?",
+    "faq_twoA": "Je mehr Daten du an die Blockchain übermitteln möchten, desto mehr Gebühren must du bezahlen. Um den Preis für jedermann erschwinglich zu halten, mussten wir die Zeicheneingabe der Nachrichten einschränken.",
+    "faq_three": "Kann ich meine Nachricht löschen?",
+    "faq_threeA": "Sobald deine Nachricht an die Blockchain gesendet wurde, kann sie nicht gelöscht werden. Das liegt in der Natur von Blockchains, was sie so sicher macht. Deine Liebeserklärung wird für immer gespeichert.",
+    "faq_four": "Warum habt ihr Vechain als eure Blockchain gewählt?",
+    "faq_fourA": "Warum nicht? VeChain ist eine sehr skalierbare L1-Lösung mit niedrigen Gebühren und leicht zugänglichen Entwickler-Toolkits. Aufgrund der Fee Delegation von VeChain können wir Blockchain-Anwendungen mit minimalen technischen Benutzerinteraktionen erstellen.",
+
+    "findHelperText" : "Deine Transaktions ID (Startet mit 0x...) ",
+    "transactionID" : "Transaktions ID ",
+    "ownMessages" : "Deine Nachrichten",
+    "message" : "Nachricht: ",
+    
+    "write" : "Schreibe deine Nachricht",
+    "writeText" : "Beachte, dass deine Nachricht dauerhaft gespeichert wird und nicht aus der Blockchain entfernt werden kann.",
+    "writeTextID" :  "\n \n Deine Nachricht wird in den folgenden Baum geschrieben: ",
+    "yourName" : "Dein Name",
+    "name2" : "Dein Empfänger",
+    "loveMessage" : "Deine Liebesbotschaft",
+    "charactersLeft" : " Zeichen übrig",
+    "fillOut" : "Bitte fülle alle Felder aus",
+    "niceThings" : "Bitte schreibe nur schöne Sachen",
+
+    "plantHeader" : "Pflanze deinen Baum",
+    "plantText" : "Beachte dass dein Baum für jeden sichtbar ist",
+    "treeName" : "Benenne deinen Baum",
+
+    "buyMessage" : "Kaufe eine Nachricht",
+    "buyMessageText" : "Schreibe deine Nachricht auf die Blockchain",
+    "writeToBlockchain" : "Wir schreiben deine Nachricht auf die Blockchain",
+    "buyTree" : "Pflanze deinen Baum",
+    "buyTreeText" : "Pflanze deinen eingenen Baum in der Blockchain",
+    "writeTreeToBlockchain" : "Wir pflanzen deinen Baum. Das kann bis zu 20 Sekunden dauern.",
+
+    "thanks" : "Vielen Dank"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class About extends StatelessWidget {
   @override
@@ -30,7 +31,7 @@ class About extends StatelessWidget {
                         border: Border.all(color: Colors.white, width: 5),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Text(
-                      "About",
+                      AppLocalizations.of(context)!.about,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                   ),
@@ -40,7 +41,7 @@ class About extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(30),
               child: Text(
-                "TREE FOR TWO is developed by SayNode. We want to do cool stuff with blockchains",
+                AppLocalizations.of(context)!.aboutText,
                 style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                 textAlign: TextAlign.center,
               ),
@@ -55,10 +56,10 @@ class About extends StatelessWidget {
                           minimumSize: Size.fromHeight(40),
                           primary: Colors.pink),
                       child: Text(
-                        'Visit Us',
+                        AppLocalizations.of(context)!.link,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
                       onPressed: () async {
@@ -78,10 +79,10 @@ class About extends StatelessWidget {
                             minimumSize: Size.fromHeight(40),
                             primary: Colors.pink),
                         child: Text(
-                          'back',
+                          AppLocalizations.of(context)!.back,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold),
                         ),
                         onPressed: () {

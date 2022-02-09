@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:three4two/FAQ.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/about.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -26,9 +27,9 @@ class MyDrawer extends StatelessWidget {
                       width: 75,
                     ),
                     const SizedBox(width: 50),
-                    const Flexible(
+                    Flexible(
                       child: Text(
-                        'presented by SayNode',
+                        AppLocalizations.of(context)!.presented,
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -50,7 +51,7 @@ class MyDrawer extends StatelessWidget {
               onClicked: () => selectItem(context, 0),
             ),
             buildMenuItem(
-              text: "About",
+              text: AppLocalizations.of(context)!.about,
               icon: Icons.people,
               onClicked: () => selectItem(context, 1),
             ),

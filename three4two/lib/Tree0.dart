@@ -99,66 +99,84 @@ class Tree extends StatelessWidget {
               );
             } else
               return Center(
-                child: ListView.builder(
-                  cacheExtent: 10,
-                  itemBuilder: (BuildContext ctx, int index) {
-                    return GestureDetector(
-                      child: Stack(
-                        alignment: Alignment.center,
-                        clipBehavior: Clip.none,
-                        children: <Widget>[
-                          FadeInImage(
-                            placeholder:
-                                AssetImage("assets/images/transparent.png"),
-                            image: AssetImage(
-                              himmel[Random().nextInt(7)],
-                            ),
-                            fadeInDuration: Duration(seconds: 1),
-                          ),
-                          FractionallySizedBox(
-                            alignment: Alignment.center,
-                            widthFactor: 0.75,
-                            child: Image.asset("assets/images/trunk.png"),
-                          ),
-                          FractionallySizedBox(
-                            widthFactor: 0.7,
-                            child: Transform.rotate(
-                              angle: 0.5 - Random().nextDouble(),
-                              child: Container(
-                                alignment: Alignment(
-                                    1 - 2 * Random().nextDouble(),
-                                    1 - 2 * Random().nextDouble()),
-                                padding: EdgeInsets.all(20),
-                                child: Text(
-                                  bothNames[index],
-                                  style: TextStyle(
-                                      color: Color(0xffDFD7C8).withOpacity(0.8),
-                                      fontSize:
-                                          30 * (Random().nextDouble() + 0.5),
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "CARVEDWOOD"),
-                                ),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        cacheExtent: 10,
+                        itemBuilder: (BuildContext ctx, int index) {
+                          if (index == (bothNames.length)) {
+                            return FractionallySizedBox(
+                              alignment: Alignment.center,
+                              widthFactor: 1,
+                              child: Image.asset("assets/images/wurzel.png"),
+                            );
+                          } else {
+                            return GestureDetector(
+                              child: Stack(
+                                alignment: Alignment.center,
+                                clipBehavior: Clip.none,
+                                children: <Widget>[
+                                  FadeInImage(
+                                    placeholder: AssetImage(
+                                        "assets/images/transparent.png"),
+                                    image: AssetImage(
+                                      himmel[Random().nextInt(7)],
+                                    ),
+                                    fadeInDuration: Duration(seconds: 1),
+                                  ),
+                                  FractionallySizedBox(
+                                    alignment: Alignment.center,
+                                    widthFactor: 0.75,
+                                    child:
+                                        Image.asset("assets/images/trunk.png"),
+                                  ),
+                                  FractionallySizedBox(
+                                    widthFactor: 0.7,
+                                    child: Transform.rotate(
+                                      angle: 0.5 - Random().nextDouble(),
+                                      child: Container(
+                                        alignment: Alignment(
+                                            1 - 2 * Random().nextDouble(),
+                                            1 - 2 * Random().nextDouble()),
+                                        padding: EdgeInsets.all(20),
+                                        child: Text(
+                                          bothNames[index],
+                                          style: TextStyle(
+                                              color: Color(0xffDFD7C8)
+                                                  .withOpacity(0.8),
+                                              fontSize: 30 *
+                                                  (Random().nextDouble() + 0.5),
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "CARVEDWOOD"),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ),
-                        ],
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (context, animation1, animation2) =>
+                                            TreeOnClick(
+                                      names: bothNames[index],
+                                      message: fullMessage[index],
+                                    ),
+                                    transitionDuration: Duration.zero,
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                        },
+                        itemCount: bothNames.length + 1,
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                                TreeOnClick(
-                              names: bothNames[index],
-                              message: fullMessage[index],
-                            ),
-                            transitionDuration: Duration.zero,
-                          ),
-                        );
-                      },
-                    );
-                  },
-                  itemCount: bothNames.length,
+                    ),
+                  ],
                 ),
               );
           }

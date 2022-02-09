@@ -14,7 +14,7 @@ Future getTrees() async {
       "options": {"offset": 0, "limit": 300},
       "criteriaSet": [
         {
-          "address": "0xca4B53CF539e30d61D7111cf784BFFA3587C4FE0",
+          "address": globals.treeFactoryAddress,
           "topic0":
               "0xeb3a151fbf02ed5c90d14b23ba486256b168f6ab2364c5b47319046b11547836"
         }
@@ -29,7 +29,7 @@ Future getTrees() async {
       String treeAddress = nodeResponse[i]['topics'][2];
       globals.trees.add("0x" + treeAddress.substring(26, treeAddress.length));
     }
-    getTreeNames();
+    await getTreeNames();
     return;
   } on Exception catch (e) {
     return "fail";

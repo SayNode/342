@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:three4two/widget/Drawer.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
-import "package:three4two/widget/fetchOffers.dart";
+
 import 'package:profanity_filter/profanity_filter.dart';
 import 'package:three4two/widget/fetchTreeOffers.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class newTree extends StatefulWidget {
   @override
@@ -23,7 +24,6 @@ class _newTree extends State<newTree> {
   bool _validateName2 = false;
   bool _validateTree = false;
 
-  String myText = "send";
   String txID = "";
   bool sucessfulPayment = false;
   List<String> badWordList = ["Hitler", "Nazi", "Sieg Heil"];
@@ -54,7 +54,7 @@ class _newTree extends State<newTree> {
                     child: Column(
                       children: [
                         Text(
-                          "Plant your tree",
+                          AppLocalizations.of(context)!.plantHeader,
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _newTree extends State<newTree> {
                           ),
                         ),
                         Text(
-                          "Be aware that your tree is visible for everyone",
+                          AppLocalizations.of(context)!.plantText,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
@@ -89,10 +89,12 @@ class _newTree extends State<newTree> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "Name your tree",
+                      hintText: AppLocalizations.of(context)!.treeName,
+                      hintStyle: TextStyle(fontSize: 14),
                       helperStyle: TextStyle(color: Colors.white),
                       counterText:
-                          '${(30 - globals.newTreeName.length).toString()} characters left',
+                          (30 - globals.newTreeName.length).toString() +
+                              AppLocalizations.of(context)!.charactersLeft,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:
@@ -118,7 +120,7 @@ class _newTree extends State<newTree> {
                     child: Column(
                       children: [
                         Text(
-                          " Write your message",
+                          AppLocalizations.of(context)!.write,
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -126,7 +128,7 @@ class _newTree extends State<newTree> {
                           ),
                         ),
                         Text(
-                          "Be aware, that your message is stored permanently and can't be removed from the blockchain.",
+                          AppLocalizations.of(context)!.writeText,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
@@ -155,21 +157,23 @@ class _newTree extends State<newTree> {
                             LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              hintText: "your name"),
+                            ),
+                            hintText: AppLocalizations.of(context)!.yourName,
+                            hintStyle: TextStyle(fontSize: 14),
+                          ),
                         ),
                       ),
                     ),
@@ -193,21 +197,23 @@ class _newTree extends State<newTree> {
                             LengthLimitingTextInputFormatter(15),
                           ],
                           decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                                borderSide: BorderSide(
-                                  color: Colors.pink,
-                                ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              borderSide: BorderSide(
+                                color: Colors.pink,
                               ),
-                              hintText: "your loved one"),
+                            ),
+                            hintText: AppLocalizations.of(context)!.name2,
+                            hintStyle: TextStyle(fontSize: 14),
+                          ),
                         ),
                       ),
                     ),
@@ -229,10 +235,11 @@ class _newTree extends State<newTree> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "your love message",
+                      hintText: AppLocalizations.of(context)!.loveMessage,
+                      hintStyle: TextStyle(fontSize: 14),
                       helperStyle: TextStyle(color: Colors.white),
-                      counterText:
-                          '${(140 - globals.message.length).toString()} characters left',
+                      counterText: (140 - globals.message.length).toString() +
+                          AppLocalizations.of(context)!.charactersLeft,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                         borderSide:
@@ -264,8 +271,8 @@ class _newTree extends State<newTree> {
                                   filter.hasProfanity(globals.name2)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content:
-                                        Text("Please only write nice things"),
+                                    content: Text(AppLocalizations.of(context)!
+                                        .niceThings),
                                   ),
                                 );
                               } else {
@@ -292,8 +299,9 @@ class _newTree extends State<newTree> {
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content:
-                                          Text("Please fill out all fields"),
+                                      content: Text(
+                                          AppLocalizations.of(context)!
+                                              .fillOut),
                                     ),
                                   );
                                 }
@@ -301,7 +309,7 @@ class _newTree extends State<newTree> {
                             },
                             child: Row(children: [
                               Text(
-                                myText,
+                                AppLocalizations.of(context)!.plant,
                               ),
                               const Padding(
                                 padding: EdgeInsets.only(left: 8.0),
