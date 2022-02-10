@@ -233,6 +233,21 @@
     "thanks" : "Thank you",
     "@thanks": {
         "description": "Thank you"
+    },
+
+    "help" : "Help",
+    "@help": {
+        "description": "Help header"
+    },
+
+    "writeUs" : "Write us",
+    "@writeUs": {
+        "description": "Write us button"
+    },
+
+    "writeUsText" : "For any questions, suggestions for improvement or praise and criticism contact us by email.",
+    "@writeUs": {
+        "description": "Write us button"
     }
 
 

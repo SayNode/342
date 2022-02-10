@@ -52,5 +52,8 @@
     "buyTreeText" : "Pflanze deinen eingenen Baum in der Blockchain",
     "writeTreeToBlockchain" : "Wir pflanzen deinen Baum. Das kann bis zu 20 Sekunden dauern.",
 
-    "thanks" : "Vielen Dank"
+    "thanks" : "Vielen Dank",
+    "help" : "Hilfe",
+    "writeUs" : "Schreib uns",
+    "writeUsText" : "Für alle Fragen, Verbesserungsvorschläge, Lob und Kritik schreibe uns eine Mail."
 }
