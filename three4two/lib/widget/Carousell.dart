@@ -16,10 +16,16 @@ class imageCarousel extends StatefulWidget {
 List<String> treeURL = [];
 
 class _imageCarousel extends State<imageCarousel> {
+  late Future<List<String>> future;
+  void initState() {
+    future = generateTreeURL();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: generateTreeURL(),
+      future: future,
       builder: (BuildContext context, snapshot) {
         if (snapshot.hasError) {
           return Center(
@@ -106,6 +112,7 @@ class _imageCarousel extends State<imageCarousel> {
 }
 
 Future<List<String>> generateTreeURL() async {
+  print("Now");
   await getTrees();
   treeURL.clear();
   for (var x = 0; x < globals.trees.length; x++) {

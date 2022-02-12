@@ -246,8 +246,13 @@
     },
 
     "writeUsText" : "For any questions, suggestions for improvement or praise and criticism contact us by email.",
-    "@writeUs": {
+    "@writeUsText": {
         "description": "Write us button"
+    },
+
+    "explorer" : "View in explorer",
+    "@explorer": {
+        "description": "View in explorer Button"
     }
 
 

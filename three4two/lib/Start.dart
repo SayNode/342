@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:three4two/Home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:three4two/Thanks.dart';
 
 class Screen0 extends StatelessWidget {
   @override
