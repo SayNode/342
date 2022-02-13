@@ -9,7 +9,6 @@ class TreeOnClick extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("assets/UI/UIBG.png"), context);
     return Scaffold(
         body: Container(
       color: Colors.white,
@@ -49,7 +48,7 @@ class TreeOnClick extends StatelessWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.only(left: 30, right: 30),
             child: Text(
               message,
               style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
@@ -57,7 +56,7 @@ class TreeOnClick extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(30),
+            margin: EdgeInsets.only(left: 30, right: 30, bottom: 30),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(50),

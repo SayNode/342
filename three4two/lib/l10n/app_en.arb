@@ -190,7 +190,7 @@
         "description": "Plant Header"
     },
 
-    "plantText" : "Be aware that your tree is visible for everyone",
+    "plantText" : "For every tree that is planted in our app, we plant one real tree on our planet. \n Be aware that your tree is visible for everyone",
     "@PlantText": {
         "description": "Plant description"
     },
