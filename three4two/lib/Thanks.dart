@@ -6,6 +6,7 @@ import 'package:share/share.dart';
 import 'package:three4two/widget/getTrees.dart';
 import 'package:three4two/widget/loading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Thanks extends StatefulWidget {
   const Thanks({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _Thanks extends State<Thanks> {
       body: SingleChildScrollView(
         clipBehavior: Clip.hardEdge,
         child: Container(
+          height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,37 +61,51 @@ class _Thanks extends State<Thanks> {
                   style: TextStyle(color: Colors.grey.shade600, fontSize: 20),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    child: Icon(
-                      Icons.share,
-                      size: 24.0,
+              Container(
+                margin: EdgeInsets.only(bottom: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      child: Text(AppLocalizations.of(context)!.explorer),
+                      onPressed: () async {
+                        final url =
+                            ("https://explore.vechain.org/transactions/" +
+                                globals.recentTx);
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        }
+                      },
                     ),
-                    onPressed: () {
-                      Share.share(
-                          "Play Store: https://play.google.com/store/apps/details?id=ch.saynode.three42" +
-                              "\n" +
-                              "App Store: https://apps.apple.com/us/app/tree-for-two/id1606557166" +
-                              "My Transaction ID: " +
-                              globals.recentTx);
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Home'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Home();
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                ],
+                    ElevatedButton(
+                      child: Icon(
+                        Icons.share,
+                        size: 24.0,
+                      ),
+                      onPressed: () {
+                        Share.share(
+                            "Play Store: https://play.google.com/store/apps/details?id=ch.saynode.three42" +
+                                "\n" +
+                                "App Store: https://apps.apple.com/us/app/tree-for-two/id1606557166" +
+                                "My Transaction ID: " +
+                                globals.recentTx);
+                      },
+                    ),
+                    ElevatedButton(
+                      child: Text('Home'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Home();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               )
             ],
           ),

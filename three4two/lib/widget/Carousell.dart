@@ -4,6 +4,7 @@ import 'package:three4two/Tree0.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:three4two/Utils/globals.dart' as globals;
 import 'package:three4two/widget/getTrees.dart';
+import 'package:three4two/widget/loading.dart';
 
 class imageCarousel extends StatefulWidget {
   const imageCarousel({Key? key}) : super(key: key);
@@ -15,10 +16,16 @@ class imageCarousel extends StatefulWidget {
 List<String> treeURL = [];
 
 class _imageCarousel extends State<imageCarousel> {
+  late Future<List<String>> future;
+  void initState() {
+    future = generateTreeURL();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: generateTreeURL(),
+      future: future,
       builder: (BuildContext context, snapshot) {
         if (snapshot.hasError) {
           return Center(
@@ -59,6 +66,12 @@ class _imageCarousel extends State<imageCarousel> {
                                   child: Container(
                                     child: Image.network(
                                       i,
+                                      loadingBuilder:
+                                          (context, child, loadingProgress) {
+                                        if (loadingProgress == null)
+                                          return child;
+                                        return loading();
+                                      },
                                       fit: BoxFit.fitWidth,
                                     ),
                                   ),
@@ -99,8 +112,8 @@ class _imageCarousel extends State<imageCarousel> {
 }
 
 Future<List<String>> generateTreeURL() async {
+  print("Now");
   await getTrees();
-  Future.delayed(Duration(seconds: 10));
   treeURL.clear();
   for (var x = 0; x < globals.trees.length; x++) {
     treeURL.add(

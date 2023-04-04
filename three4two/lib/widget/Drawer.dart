@@ -3,6 +3,7 @@ import 'package:three4two/FAQ.dart';
 import 'package:three4two/Home.dart';
 import 'package:three4two/about.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:three4two/help.dart';
 
 class MyDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -57,8 +58,13 @@ class MyDrawer extends StatelessWidget {
             ),
             buildMenuItem(
               text: "FAQ",
-              icon: Icons.help,
+              icon: Icons.question_answer,
               onClicked: () => selectItem(context, 2),
+            ),
+            buildMenuItem(
+              text: AppLocalizations.of(context)!.help,
+              icon: Icons.help,
+              onClicked: () => selectItem(context, 3),
             ),
           ],
         ),
@@ -112,6 +118,14 @@ void selectItem(BuildContext context, int index) {
           context,
           PageRouteBuilder(
             pageBuilder: (context, animation1, animation2) => FAQ(),
+            transitionDuration: Duration.zero,
+          ));
+      break;
+    case 3:
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) => Help(),
             transitionDuration: Duration.zero,
           ));
       break;

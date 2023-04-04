@@ -1,6 +1,6 @@
 {
     "language" : "Deutsch",
-    "welcome_one" : " Willkommen bei \n TREE FOR TWO",
+    "welcome_one" : " Willkommen bei",
     "welcome_two" : "Gestehe deine Liebe und speichere deine Worte für immer in der Blockchain! Lass den Baum der Liebe wachsen, mit jeder Nachricht bekommt er ein neues Blatt. Wenn du deine Nachrichten in eine Blockchain schreibst, wird sie für immer gespeichert. Das ist sogar noch besser, als deinen Namen in einen echten Baum zu ritzen oder ihn auf ein Schloss zu schreiben. Um eine Nachricht zu schreiben, klicke auf",
     "welcome_three" : " und klicke auf der nächsten Seite auf das ",
     "welcome_four" : "Icon",
@@ -42,7 +42,7 @@
     "niceThings" : "Bitte schreibe nur schöne Sachen",
 
     "plantHeader" : "Pflanze deinen Baum",
-    "plantText" : "Beachte dass dein Baum für jeden sichtbar ist",
+    "plantText" : "Für jeden in unserer App gepflanzten Baum planzen wir einen echten Baum auf unserem Planeten. \n Beachte dass dein Baum für jeden sichtbar ist",
     "treeName" : "Benenne deinen Baum",
 
     "buyMessage" : "Kaufe eine Nachricht",
@@ -52,5 +52,9 @@
     "buyTreeText" : "Pflanze deinen eingenen Baum in der Blockchain",
     "writeTreeToBlockchain" : "Wir pflanzen deinen Baum. Das kann bis zu 20 Sekunden dauern.",
 
-    "thanks" : "Vielen Dank"
+    "thanks" : "Vielen Dank",
+    "help" : "Hilfe",
+    "writeUs" : "Schreib uns",
+    "writeUsText" : "Für alle Fragen, Verbesserungsvorschläge, Lob und Kritik schreibe uns eine Mail.",
+    "explorer" : "Im Explorer ansehen"
 }

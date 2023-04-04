@@ -4,7 +4,7 @@
         "description": "The current language"
     },
 
-    "welcome_one" : "Welcome to \n TREE FOR TWO",
+    "welcome_one" : "Welcome to",
     "@welcome_one": {
         "description": "Welcometext start Page"
     },
@@ -190,7 +190,7 @@
         "description": "Plant Header"
     },
 
-    "plantText" : "Be aware that your tree is visible for everyone",
+    "plantText" : "For every tree that is planted in our app, we plant one real tree on our planet. \n Be aware that your tree is visible for everyone",
     "@PlantText": {
         "description": "Plant description"
     },
@@ -233,6 +233,26 @@
     "thanks" : "Thank you",
     "@thanks": {
         "description": "Thank you"
+    },
+
+    "help" : "Help",
+    "@help": {
+        "description": "Help header"
+    },
+
+    "writeUs" : "Write us",
+    "@writeUs": {
+        "description": "Write us button"
+    },
+
+    "writeUsText" : "For any questions, suggestions for improvement or praise and criticism contact us by email.",
+    "@writeUsText": {
+        "description": "Write us button"
+    },
+
+    "explorer" : "View in explorer",
+    "@explorer": {
+        "description": "View in explorer Button"
     }
 
 
